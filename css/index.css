@@ -8,7 +8,7 @@ p {
     font-size: 20px;
 }
 
-div.my_titles {
+div.navbar {
   border-radius: 25px;
   background: rgb(255, 255, 255);
   padding: 20px; 
@@ -29,10 +29,58 @@ div.nav_links {
 
 div.my_titles {
   border-radius: 5px;
-  background: rgb(196, 195, 255);
+  background: rgb(255, 255, 255);
   padding: 20px; 
   width: 200px;
   height: 80px;  
+}
+
+div.thumb {
+  display: inline-grid;
+  grid-template-columns: 250px 250px 250px 250px;
+  grid-gap: 40px;
+  padding: 0 50px 100px 50px;
+}
+@media (max-width: 1300px) {
+  div.thumb {
+      grid-template-columns: 250px 250px 250px;
+  }
+}
+@media (max-width: 1000px) {
+  div.thumb {
+      grid-template-columns: 250px 250px;
+  }
+}
+@media (max-width: 700px) {
+  div.thumb {
+      grid-template-columns: 250px;
+  }
+}
+
+div.thumb a {
+  opacity: 1;
+  display: inline-block;
+  text-decoration: none;
+  width: 250px;
+}
+div.thumb a img {
+}
+div.thumb a:hover img {
+}
+div.thumb a p {
+  text-decoration: none;
+  white-space: nowrap;
+  text-align: center;
+  margin: 0;
+  font-family: 'Helvetica';
+  font-size: 16px;
+  color: #000000;
+  background-color: #93b0ff;
+  min-width: 256px;
+  opacity: 0.8;
+}
+div.thumb a:hover p {
+  opacity: 0.6;
 }
 
 #rcorners1 {
