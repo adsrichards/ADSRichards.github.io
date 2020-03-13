@@ -146,7 +146,7 @@
     gl.vertexAttribPointer(positionAttributeLocation, size, type, normalize, stride, offset);
 	
 	var T = 2.2691853142;
-	var L = 80;
+	var L = 40;
 	var N = L*L;
 	var S = [];
 	var dx = 0;
@@ -205,7 +205,7 @@
 
 		for(var yi = 0; yi < L; ++yi){
 			for(var xi = 0; xi < L; ++xi){
-				setRectangle(gl, xi*8, yi*8, 5, 5);
+				setRectangle(gl, xi*15, yi*15, 10, 10);
 				var r = (S[yi + L*xi]+1)/2;
 				gl.uniform4f(colorLocation, r, r, r, 1);
 				gl.drawArrays(gl.TRIANGLES, 0, 6);
@@ -228,7 +228,7 @@
 				else if(Math.random() < Math.exp(-delE/T)){S[riy + L*rix] *= -1;}
 			}
 		}
-		pause(250);
+		pause(25);
 		requestAnimationFrame(render);
 	}
 	render();
