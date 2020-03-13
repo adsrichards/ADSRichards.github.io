@@ -25,70 +25,61 @@
 			<p>T = <span id="T"></span></p>
 		</div>
 		<script>
-		var Tslider = document.getElementById("TRange");
-		var Toutput = document.getElementById("T");
-		Toutput.innerHTML = Tslider.value;
-
-		Tslider.oninput = function() {
-    			Toutput.innerHTML = this.value;
-		}
-	</script>
-    <div id="Jslidecontainer">
-		<p>Nearest Neighbour coupling:</p>
-		<input type="range" min="-2.0" max="2.0" value="-1.0" step="0.001" class='slider' id="JRange">
-		<p>J = <span id="J"></span></p>
-	</div>
-	<script>
-		var Jslider = document.getElementById("JRange");
-		var Joutput = document.getElementById("J");
-		Joutput.innerHTML = Jslider.value;
-
-		Jslider.oninput = function() {
-    			Joutput.innerHTML = this.value;
-		}
-	</script>
+			var Tslider = document.getElementById("TRange");
+			var Toutput = document.getElementById("T");
+			Toutput.innerHTML = Tslider.value;
+			Tslider.oninput = function() {Toutput.innerHTML = this.value;}
+		</script>
+    	<div id="Jslidecontainer">
+			<p>Nearest Neighbour coupling:</p>
+			<input type="range" min="-2.0" max="2.0" value="-1.0" step="0.001" class='slider' id="JRange">
+			<p>J = <span id="J"></span></p>
+		</div>
+		<script>
+			var Jslider = document.getElementById("JRange");
+			var Joutput = document.getElementById("J");
+			Joutput.innerHTML = Jslider.value;
+			Jslider.oninput = function() {Joutput.innerHTML = this.value;}
+		</script>
         <div id="Kslidecontainer">
 			<p>Plaquette coupling:</p>
 			<input type="range" min="-2.0" max="2.0" value="0.0" step="0.001" class='slider' id="KRange">
 			<p>K = <span id="K"></span></p>
 		</div>
 		<script>
-		var Kslider = document.getElementById("KRange");
-		var Koutput = document.getElementById("K");
-		Koutput.innerHTML = Kslider.value;
+			var Kslider = document.getElementById("KRange");
+			var Koutput = document.getElementById("K");
+			Koutput.innerHTML = Kslider.value;
+			Kslider.oninput = function() {Koutput.innerHTML = this.value;}
+		</script>
 
-		Kslider.oninput = function() {
-    			Koutput.innerHTML = this.value;
-		}
-	</script>
-
-<canvas width = "600" height = "600" id = "c"></canvas>
+	<canvas width = "600" height = "600" id = "c"></canvas>
 <script>
 
-       	//==================Canvas=========================
-        var canvas = document.getElementById('c');
-        var gl = canvas.getContext('webgl2');
+    //==================Canvas=========================
+    var canvas = document.getElementById('c');
+    var gl = canvas.getContext('webgl2');
 
 	//==================Shaders========================
-    	var vertexShaderSource = `#version 300 es
-    		in vec2 a_position;
+    var vertexShaderSource = `#version 300 es
+   		in vec2 a_position;
 		uniform vec2 u_resolution;	
-    		void main() {
-    			vec2 zeroToOne = a_position / u_resolution;
-    			vec2 zeroToTwo = zeroToOne * 2.0;
-    			vec2 clipSpace = zeroToTwo - 1.0;
-     			gl_Position = vec4(clipSpace, 0, 1);
-    		}
-    	`;
+   		void main() {
+   			vec2 zeroToOne = a_position / u_resolution;
+   			vec2 zeroToTwo = zeroToOne * 2.0;
+   			vec2 clipSpace = zeroToTwo - 1.0;
+   			gl_Position = vec4(clipSpace, 0, 1);
+   		}
+    `;
      
-    	var fragmentShaderSource = `#version 300 es
-    		precision mediump float;
+    var fragmentShaderSource = `#version 300 es
+    	precision mediump float;
 		uniform vec4 u_color;
-    		out vec4 outColor;     
-    		void main() {
-      			outColor = u_color;
-    		}
-    	`;
+    	out vec4 outColor;     
+    	void main() {
+    		outColor = u_color;
+    	}
+    `;
 
 	function createShader(gl, type, source) {
 		var shader = gl.createShader(type);
@@ -98,14 +89,13 @@
       		if (success) {
         		return shader;
       		}     
-      		console.log(gl.getShaderInfoLog(shader));
-     		gl.deleteShader(shader);
-    	}
+    	gl.deleteShader(shader);
+    }
 
-    	var vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
-    	var fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
+    var vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
+    var fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
 
-    	function createProgram(gl, vertexShader, fragmentShader) {
+    function createProgram(gl, vertexShader, fragmentShader) {
       		var program = gl.createProgram();
       		gl.attachShader(program, vertexShader);
       		gl.attachShader(program, fragmentShader);
@@ -113,8 +103,7 @@
       		var success = gl.getProgramParameter(program, gl.LINK_STATUS);
       		if (success) {
         		return program;
-      		}     
-      		console.log(gl.getProgramInfoLog(program));
+      		}
       		gl.deleteProgram(program);
     	}
 
@@ -122,7 +111,7 @@
 	
 	//==================Initialization=================
 	var positionAttributeLocation = gl.getAttribLocation(program, 'a_position');
-    	var resolutionUniformLocation = gl.getUniformLocation(program, "u_resolution");
+    var resolutionUniformLocation = gl.getUniformLocation(program, "u_resolution");
 	var colorLocation = gl.getUniformLocation(program, "u_color");
 
 	var positionBuffer = gl.createBuffer();
@@ -146,28 +135,26 @@
 	}
 
 	var vao = gl.createVertexArray();
-    	gl.bindVertexArray(vao);
+    gl.bindVertexArray(vao);
 	gl.enableVertexAttribArray(positionAttributeLocation);
 
-    	var size = 2;          
+    var size = 2;          
    	var type = gl.FLOAT;   
-    	var normalize = false; 
+    var normalize = false; 
    	var stride = 0;        
-    	var offset = 0;        
-    	gl.vertexAttribPointer(positionAttributeLocation, size, type, normalize, stride, offset);
+    var offset = 0;        
+    gl.vertexAttribPointer(positionAttributeLocation, size, type, normalize, stride, offset);
 	
 	var T = 2.2691853142;
-	var L = 50;
+	var L = 80;
 	var N = L*L;
 	var S = [];
 	var dx = 0;
 	var dy = 0;
 	for (var yi = 0; yi < L; ++yi){
-		var Sx = [];
 		for (var xi = 0; xi < L; ++xi){
-			Sx[xi] = [Math.pow(-1,Math.floor(Math.random()*2 +1)),0,0];
+			S[yi + L*xi] = Math.pow(-1,Math.floor(Math.random()*2 +1));
 		}
-		S[yi] = Sx; 
 	}
 
 	//==================Functions======================
@@ -176,86 +163,77 @@
 	}
 
 	function randomBin(){
-  		return Math.round(Math.random());
+  		return Math.floor(Math.random()*2);
 	}
 	
-	function E(S){
-		var ES = 0;
-		for(var yi = 0; yi < L; ++yi){
-			for(var xi = 0; xi < L; ++xi){
-				ES += S[yi][xi][0]*(S[yi][(xi+1)%L][0]+S[(yi+1)%L][xi][0]);
-			}
-		}
-		return ES;
-	}
+	//function E(S){
+	//	var ES = 0;
+	//	for(var yi = 0; yi < L; ++yi){
+	//		for(var xi = 0; xi < L; ++xi){
+	//			ES += S[yi][xi]*( S[yi][(xi+1)%L] + S[(yi+1)%L][xi] );
+	//		}
+	//	}
+	//	return ES;
+	//}
 
 	function pause(milliseconds) {
-  	const date = Date.now();
-  	let currentDate = null;
-  	do { currentDate = Date.now();} 
-	while (currentDate - date < milliseconds)
+  		const date = Date.now();
+  		let currentDate = null;
+  		do { currentDate = Date.now();} 
+		while (currentDate - date < milliseconds)
 	}
-
 
 	//==================Build Scene====================
 	gl.useProgram(program);
-	gl.uniform2f(resolutionUniformLocation, gl.canvas.width, gl.canvas.height);
 	gl.bindVertexArray(vao);
 	
-	function drawScene(){
-	gl.clearColor(0.2, 0.2, 0.2, 0.9);
- 	gl.clearDepth(1.0);
-        gl.viewport(0.0, 0.0, canvas.width, canvas.height);
+	function render(){
+		gl.clearColor(0.2, 0.2, 0.2, 0.9);
+ 		gl.clearDepth(1.0);
+		gl.uniform2f(resolutionUniformLocation, gl.canvas.width, gl.canvas.height);
+    	gl.viewport(0.0, 0.0, canvas.width, canvas.height);
         gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
-	
-
-	var Tval = Tslider.value;
-	var T = parseFloat(Tval);
+		var Tval = Tslider.value;
+		var T = parseFloat(Tval);
         
-    var Jval = Jslider.value;
-	var J = parseFloat(Jval);
+    	var Jval = Jslider.value;
+		var J = parseFloat(Jval);
     
-    var Kval = Kslider.value;
-	var K = parseFloat(Kval);
+    	var Kval = Kslider.value;
+		var K = parseFloat(Kval);
 
-	for(var yi = 0; yi < L; ++yi){
-		for(var xi = 0; xi < L; ++xi){
-			setRectangle(gl, (xi+S[yi][xi][1])*12, (yi+S[yi][xi][2])*12, 8, 8);
-			var r = (S[yi][xi][0]+1)/2;
-			gl.uniform4f(colorLocation, r, r, r, 1);
-			var primitiveType = gl.TRIANGLES;
-    			var offset = 0;
-   			var count = 6;
-    			gl.drawArrays(primitiveType, offset, count);
-		
-			for(var t = 0; t < 2; ++t){
+		for(var yi = 0; yi < L; ++yi){
+			for(var xi = 0; xi < L; ++xi){
+				setRectangle(gl, xi*8, yi*8, 5, 5);
+				var r = (S[yi + L*xi]+1)/2;
+				gl.uniform4f(colorLocation, r, r, r, 1);
+				gl.drawArrays(gl.TRIANGLES, 0, 6);
+			
 				var riy = randomInt(L);
 				var rix = randomInt(L);
-				var delE =  -2*J*S[riy][rix][0]*(
-								S[riy][(rix+1)%L][0]
-								+S[(riy+1)%L][rix][0]
-								+S[riy][(rix+L-1)%L][0]
-								+S[(riy+L-1)%L][rix][0]
+				var delE =  -2*J*S[riy + L*rix]*(
+								  S[riy + L*((rix+1)%L)]
+								+ S[(riy+1)%L + L*rix]
+								+ S[riy + L*((rix+L-1)%L)]
+								+ S[(riy+L-1)%L + L*rix]
 								)
-							-2*K*S[riy][rix][0]*(
-								S[riy][(rix+1)%L][0]*S[(riy+1)%L][rix][0]*S[(riy+1)%L][(rix+1)%L][0]
-								+S[(riy+1)%L][rix][0]*S[riy][(rix+L-1)%L][0]*S[(riy+1)%L][(rix+L-1)%L][0]
-								+S[riy][(rix+L-1)%L][0]*S[(riy+L-1)%L][rix][0]*S[(riy+L-1)%L][(rix+L-1)%L][0]
-								+S[(riy+L-1)%L][rix][0]*S[riy][(rix+1)%L][0]*S[(riy+L-1)%L][(rix+1)%L][0]
+							-2*K*S[riy + L*rix]*(
+								S[riy + L*((rix+1)%L)]    * S[(riy+1)%L + L*rix]     * S[(riy+1)%L + L*((rix+1)%L)]
+								+S[(riy+1)%L + L*rix]     * S[riy + L*((rix+L-1)%L)] * S[(riy+1)%L + L*((rix+L-1)%L)]
+								+S[riy + L*((rix+L-1)%L)] * S[(riy+L-1)%L + L*rix]   * S[(riy+L-1)%L + L*((rix+L-1)%L)]
+								+S[(riy+L-1)%L + L*rix]   * S[riy + L*((rix+1)%L)]   * S[(riy+L-1)%L + L*((rix+1)%L)]
 								);
-				if(delE < 0){S[riy][rix][0] *= -1;}
-				else if(Math.random() < Math.exp(-delE/T)){S[riy][rix][0] *= -1;}
+				if(delE < 0){S[riy + L*rix] *= -1;}
+				else if(Math.random() < Math.exp(-delE/T)){S[riy + L*rix] *= -1;}
 			}
 		}
+		//pause(1);
+		requestAnimationFrame(render);
 	}
-	pause(100);
-	requestAnimationFrame(drawScene);
-	}
-
-	drawScene();
-      </script>      
+	render();
+    </script>      
 	</div>
-   </body>
-   </html> 
+</body>
+</html> 
    
