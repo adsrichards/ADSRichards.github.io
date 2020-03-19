@@ -2,10 +2,53 @@ html, body {
   display: block;
   margin: 25px;
 }
- 
+
+* {
+  box-sizing: border-box;
+}
+
 p {
     font-family: 'Times New Roman', Times, serif;
     font-size: 20px;
+}
+
+h1{
+  margin-top: 60px;
+  text-align: center;
+  font-size: 28px;
+  background: rgb(255, 255, 255);
+  padding: 15px;
+  border-radius: 5px;
+}
+
+h2{
+  font-size: 20px;
+  margin-top: -5px;
+  margin-left: 20px;
+}
+
+sidebar {
+  float: left;
+  width: 26%;
+  height: 760px;
+  background: rgb(62, 92, 145);
+  padding-right: 120px;
+  padding-left: 120px;
+  border-radius: 5px;
+}
+
+nav {
+  float: left;
+  padding-right: 20px;
+  padding-left: 20px;
+  width: 74%;
+  height: 820px;
+}
+
+section:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 div.navbar {
@@ -20,10 +63,10 @@ div.nav_links {
   border-radius: 25px;
   position: fixed;
   top: 40px;
-  right: 40px;
+  right: 45px;
   background: rgb(255, 255, 255);
-  padding: 10px; 
-  width: 100px;
+  padding: 20px; 
+  width: 120px;
   height: 20px;  
 }
 
@@ -35,10 +78,30 @@ div.my_titles {
   height: 80px;  
 }
 
+div.simulations {
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #474747;
+  background: rgb(255, 255, 255));
+  padding: 20px; 
+  width: 1200px;
+  height: 370px;  
+}
+
+div.data {
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #474747;
+  background: rgb(255, 255, 255);
+  padding: 20px; 
+  width: 1200px;
+  height: 370px;  
+}
+
 div.thumb {
   display: inline-grid;
   grid-template-columns: 250px 250px 250px 250px;
-  grid-gap: 40px;
+  grid-gap: 60px;
   padding: 0 50px 100px 50px;
 }
 @media (max-width: 1300px) {
@@ -87,6 +150,6 @@ div.thumb a:hover p {
   background: rgb(255, 255, 255);
   padding: 20px; 
   width: 860px;
-  height: 50px;  
+  height: 100px;  
 }
   
