@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html>
 
-	<style>
-	#slidecontainer {width: 100%;}
-	.slider {
-    		width: 50%;
-    		height: 25px;
-    		background: #d3d3d3;
-    		-webkit-transition: .2s;
-	}
-	</style>
+<style>
+#slidecontainer {width: 100%;}
+.slider {
+   		width: 500px;
+   		height: 25px;
+   		background: #d3d3d3;
+   		-webkit-transition: .2s;
+}
+</style>
 
 <body>
 	<div class="Vicsek">
@@ -32,173 +32,173 @@
 		</script>
 
 	<canvas width = "500" height = "500" id = "c"></canvas>
-<script>
+	<script>
 
-    //==================Canvas=========================
-    var canvas = document.getElementById('c');
-    var gl = canvas.getContext('webgl2');
+		//==================Canvas=========================
+		var canvas = document.getElementById('c');
+		var gl = canvas.getContext('webgl2');
 
-	//==================Shaders========================
-    var vertexShaderSource = `#version 300 es
-   		in vec2 a_position;
-		uniform vec2 u_resolution;	
-   		void main() {
-   			vec2 zeroToOne = a_position / u_resolution;
-   			vec2 zeroToTwo = zeroToOne * 2.0;
-   			vec2 clipSpace = zeroToTwo - 1.0;
-   			gl_Position = vec4(clipSpace, 0, 1);
-   		}
-    `;
-     
-    var fragmentShaderSource = `#version 300 es
-    	precision mediump float;
-		uniform vec4 u_color;
-    	out vec4 outColor;     
-    	void main() {
-    		outColor = u_color;
-    	}
-    `;
+		//==================Shaders========================
+		var vertexShaderSource = `#version 300 es
+			in vec2 a_position;
+			uniform vec2 u_resolution;	
+			void main() {
+				vec2 zeroToOne = a_position / u_resolution;
+				vec2 zeroToTwo = zeroToOne * 2.0;
+				vec2 clipSpace = zeroToTwo - 1.0;
+				gl_Position = vec4(clipSpace, 0, 1);
+			}
+		`;
+		
+		var fragmentShaderSource = `#version 300 es
+			precision mediump float;
+			uniform vec4 u_color;
+			out vec4 outColor;     
+			void main() {
+				outColor = u_color;
+			}
+		`;
 
-	function createShader(gl, type, source) {
-		var shader = gl.createShader(type);
-		gl.shaderSource(shader, source);
-		gl.compileShader(shader);
-		var success = gl.getShaderParameter(shader, gl.COMPILE_STATUS);
-      		if (success) {
-        		return shader;
-      		}     
-    	gl.deleteShader(shader);
-    }
-
-    var vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
-    var fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
-
-    function createProgram(gl, vertexShader, fragmentShader) {
-      		var program = gl.createProgram();
-      		gl.attachShader(program, vertexShader);
-      		gl.attachShader(program, fragmentShader);
-      		gl.linkProgram(program);
-      		var success = gl.getProgramParameter(program, gl.LINK_STATUS);
-      		if (success) {
-        		return program;
-      		}
-      		gl.deleteProgram(program);
-    	}
-
-	var program = createProgram(gl, vertexShader, fragmentShader);
-	
-	//==================Initialization=================
-	var positionAttributeLocation = gl.getAttribLocation(program, 'a_position');
-    var resolutionUniformLocation = gl.getUniformLocation(program, "u_resolution");
-	var colorLocation = gl.getUniformLocation(program, "u_color");
-
-	var positionBuffer = gl.createBuffer();
-	gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
-	function setRectangle(gl, x, y, width, height) {
-  		var x1 = x;
-  		var x2 = x + width;
- 		var y1 = y;
-  		var y2 = y + height;
-
-		var positions = [
-    			x1, y1,
-     			x2, y1,
-     			x1, y2,
-     			x1, y2,
-     			x2, y1,
-     			x2, y2
-  			];
-
-		gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.DYNAMIC_DRAW);
-	}
-
-	var vao = gl.createVertexArray();
-    gl.bindVertexArray(vao);
-	gl.enableVertexAttribArray(positionAttributeLocation);
-
-    var size = 2;          
-   	var type = gl.FLOAT;   
-    var normalize = false; 
-   	var stride = 0;        
-    var offset = 0;        
-    gl.vertexAttribPointer(positionAttributeLocation, size, type, normalize, stride, offset);
-	
-	var L = 500;
-
-	//==================Functions======================
-
-	function pause(milliseconds) {
-  		const date = Date.now();
-  		let currentDate = null;
-  		do { currentDate = Date.now();} 
-		while (currentDate - date < milliseconds)
-	}
-
-	function bird(x, y) {
-		this.v = 2.5;
-    	this.theta = 0.5;
-    	this.x = x;
-    	this.y = y;
-
-		this.newPos = function(theta) {
-			var L = 500;
-			this.theta = theta;
-        	this.x += this.v*Math.cos(this.theta);
-        	this.y += this.v*Math.sin(this.theta);
-			this.x = (this.x + L)%L;
-			this.y = (this.y + L)%L;
-			setRectangle(gl, this.x, this.y, 6, 6);
-			gl.uniform4f(colorLocation, 1, 1, 1, 1);
-			gl.drawArrays(gl.TRIANGLES, 0, 6);
+		function createShader(gl, type, source) {
+			var shader = gl.createShader(type);
+			gl.shaderSource(shader, source);
+			gl.compileShader(shader);
+			var success = gl.getShaderParameter(shader, gl.COMPILE_STATUS);
+				if (success) {
+					return shader;
+				}     
+			gl.deleteShader(shader);
 		}
-	}
 
-	var Br = [];
-	var BN = 400;
-	for(var i=0; i< BN; ++i)
-	{
-		var xi = Math.floor(Math.random()*L);
-		var yi = Math.floor(Math.random()*L);
-		Br.push(new bird(xi,yi));
-	}
+		var vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
+		var fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
 
-	//==================Build Scene====================
-	gl.useProgram(program);
-	gl.bindVertexArray(vao);
-	
-	gl.clearColor(0.2, 0.2, 0.2, 0.9);
-	
-	function render(){
- 		gl.clearDepth(1.0);
-		gl.uniform2f(resolutionUniformLocation, gl.canvas.width, gl.canvas.height);
-    	gl.viewport(0.0, 0.0, canvas.width, canvas.height);
-        gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+		function createProgram(gl, vertexShader, fragmentShader) {
+				var program = gl.createProgram();
+				gl.attachShader(program, vertexShader);
+				gl.attachShader(program, fragmentShader);
+				gl.linkProgram(program);
+				var success = gl.getProgramParameter(program, gl.LINK_STATUS);
+				if (success) {
+					return program;
+				}
+				gl.deleteProgram(program);
+			}
 
-		var NosVal = NosSlider.value;
-		var Nos = parseFloat(NosVal);
+		var program = createProgram(gl, vertexShader, fragmentShader);
+		
+		//==================Initialization=================
+		var positionAttributeLocation = gl.getAttribLocation(program, 'a_position');
+		var resolutionUniformLocation = gl.getUniformLocation(program, "u_resolution");
+		var colorLocation = gl.getUniformLocation(program, "u_color");
 
+		var positionBuffer = gl.createBuffer();
+		gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+		function setRectangle(gl, x, y, width, height) {
+			var x1 = x;
+			var x2 = x + width;
+			var y1 = y;
+			var y2 = y + height;
+
+			var positions = [
+					x1, y1,
+					x2, y1,
+					x1, y2,
+					x1, y2,
+					x2, y1,
+					x2, y2
+				];
+
+			gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.DYNAMIC_DRAW);
+		}
+
+		var vao = gl.createVertexArray();
+		gl.bindVertexArray(vao);
+		gl.enableVertexAttribArray(positionAttributeLocation);
+
+		var size = 2;          
+		var type = gl.FLOAT;   
+		var normalize = false; 
+		var stride = 0;        
+		var offset = 0;        
+		gl.vertexAttribPointer(positionAttributeLocation, size, type, normalize, stride, offset);
+		
+		var L = 500;
+
+		//==================Functions======================
+
+		function pause(milliseconds) {
+			const date = Date.now();
+			let currentDate = null;
+			do { currentDate = Date.now();} 
+			while (currentDate - date < milliseconds)
+		}
+
+		function bird(x, y) {
+			this.v = 2.5;
+			this.theta = 0.5;
+			this.x = x;
+			this.y = y;
+
+			this.newPos = function(theta) {
+				var L = 500;
+				this.theta = theta;
+				this.x += this.v*Math.cos(this.theta);
+				this.y += this.v*Math.sin(this.theta);
+				this.x = (this.x + L)%L;
+				this.y = (this.y + L)%L;
+				setRectangle(gl, this.x, this.y, 6, 6);
+				gl.uniform4f(colorLocation, 1, 1, 1, 1);
+				gl.drawArrays(gl.TRIANGLES, 0, 6);
+			}
+		}
+
+		var Br = [];
+		var BN = 400;
 		for(var i=0; i< BN; ++i)
 		{
-			var nbrx_av = 0;
-			var nbry_av = 0;
-			for(var j=0; j<BN; ++j){
-				var Brijx = Br[i].x - Br[j].x;
-				var Brijy = Br[i].y - Br[j].y;
-				if( (Brijx*Brijx + Brijy*Brijy) < 25*25 )
-				{
-					nbrx_av += Math.cos(Br[j].theta);
-					nbry_av += Math.sin(Br[j].theta);
-				}
-			}
-			var newTheta = Math.atan2(nbry_av,nbrx_av);
-			Br[i].newPos((newTheta + Nos*(2*Math.random()-1))%(2*Math.PI));
-				
+			var xi = Math.floor(Math.random()*L);
+			var yi = Math.floor(Math.random()*L);
+			Br.push(new bird(xi,yi));
 		}
+
+		//==================Build Scene====================
+		gl.useProgram(program);
+		gl.bindVertexArray(vao);
 		
-		pause(10);
-		requestAnimationFrame(render);
-	}
-	render();
+		gl.clearColor(0.2, 0.2, 0.2, 0.9);
+		
+		function render(){
+			gl.clearDepth(1.0);
+			gl.uniform2f(resolutionUniformLocation, gl.canvas.width, gl.canvas.height);
+			gl.viewport(0.0, 0.0, canvas.width, canvas.height);
+			gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+
+			var NosVal = NosSlider.value;
+			var Nos = parseFloat(NosVal);
+
+			for(var i=0; i< BN; ++i)
+			{
+				var nbrx_av = 0;
+				var nbry_av = 0;
+				for(var j=0; j<BN; ++j){
+					var Brijx = Br[i].x - Br[j].x;
+					var Brijy = Br[i].y - Br[j].y;
+					if( (Brijx*Brijx + Brijy*Brijy) < 25*25 )
+					{
+						nbrx_av += Math.cos(Br[j].theta);
+						nbry_av += Math.sin(Br[j].theta);
+					}
+				}
+				var newTheta = Math.atan2(nbry_av,nbrx_av);
+				Br[i].newPos((newTheta + Nos*(2*Math.random()-1))%(2*Math.PI));
+					
+			}
+			
+			pause(10);
+			requestAnimationFrame(render);
+		}
+		render();
     </script>      
 	</div>
 </body>
