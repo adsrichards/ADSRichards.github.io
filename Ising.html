@@ -135,7 +135,7 @@
         gl.vertexAttribPointer(positionAttributeLocation, size, type, normalize, stride, offset);
       
         var T = 2.2691853142;
-        var L = 50;
+        var L = 40;
         var N = L*L;
         var S = [];
         var dx = 0;
@@ -175,7 +175,7 @@
     
         for(var yi = 0; yi < L; ++yi){
           for(var xi = 0; xi < L; ++xi){
-            setRectangle(gl, xi*10, yi*10, 6, 6);
+            setRectangle(gl, xi*12.5, yi*12.5, 8, 8);
             var r = (S[yi + L*xi]+1)/2;
             gl.uniform4f(colorLocation, r, r, r, 1);
             gl.drawArrays(gl.TRIANGLES, 0, 6);
