@@ -1,0 +1,154 @@
+html, body {
+  font-family: Arial;
+  margin: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.header {
+  font-size: 22px;
+  padding: 30px;
+  text-align: center;
+  background: rgb(42, 66, 107);
+  color: white;
+}
+
+.navbar {
+  display: flex;
+  background-color: #333;
+}
+
+.navbar a {
+  color: white;
+  padding: 14px 20px;
+  text-decoration: none;
+  text-align: center;
+}
+
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.row {  
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.sideR {
+  height: 800px;
+  flex: 40%;
+  background-color: #f1f1f1;
+  padding: 20px;
+}
+
+.sideL {
+  height: 800px;
+  flex: 2%;
+  background-color: #f1f1f1;
+  padding: 0px;
+}
+
+.main {
+  flex: 55%;
+  background-color: white;
+  padding: 20px;
+}
+
+.simBox {
+  margin: auto;
+  text-align: left;
+  width: 500px;
+  height: 500px;
+  padding: 15px;
+  padding-top: 0px;
+}
+
+.spacer1 {
+  padding: 20px;
+  background: #f1f1f1;
+}
+
+.spacer2 {
+  padding: 30px;
+  background: #333;
+}
+
+.footer {
+  font-size: 18px;
+  padding: 10px;
+  padding-left: 30px;
+  background: rgb(42, 66, 107);
+  color: rgb(255, 255, 255);
+}
+
+@media screen and (max-width: 1300px) {
+  .row, .navbar {   
+    flex-direction: column-reverse;
+  }
+}
+
+div.simulations {
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #474747;
+  background: rgb(255, 255, 255);
+  padding-left: 20px;
+  padding-bottom: 20px; 
+  width: 1200px;
+  height: 370px;  
+}
+
+div.data {
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #474747;
+  background: rgb(255, 255, 255);
+  padding-left: 20px;
+  padding-bottom: 20px; 
+  width: 1200px;
+  height: 370px;  
+}
+
+div.thumb {
+  display: inline-grid;
+  grid-template-columns: 250px 250px 250px 250px;
+  grid-gap: 60px;
+  padding: 0 50px 100px 50px;
+}
+
+div.thumb a {
+  opacity: 1;
+  display: inline-block;
+  text-decoration: none;
+  width: 250px;
+}
+
+div.thumb a p {
+  text-decoration: none;
+  white-space: nowrap;
+  text-align: center;
+  margin: 0;
+  font-family: 'Helvetica';
+  font-size: 16px;
+  color: #000000;
+  background-color: #93b0ff;
+  min-width: 256px;
+  opacity: 0.8;
+}
+div.thumb a:hover p {
+  opacity: 0.6;
+}
+
+.center {
+  margin: auto;
+}
+
+.slider {
+   		width: 500px;
+   		height: 25px;
+   		background: #d3d3d3;
+   		-webkit-transition: .2s;
+}
