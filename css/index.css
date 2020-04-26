@@ -22,9 +22,10 @@ html, body {
 
 .navbar a {
   color: white;
-  padding: 14px 20px;
+  padding: 10px 15px;
   text-decoration: none;
   text-align: center;
+  margin: 4px 4px;
 }
 
 .navbar a:hover {
@@ -37,11 +38,26 @@ html, body {
   flex-wrap: wrap;
 }
 
-.side {
+.sideL {
+  float: left;
   height: 800px;
-  flex: 30%;
+  flex: 25%;
   background-color: #f1f1f1;
   padding: 20px;
+}
+
+.sideR {
+  float: right;
+  height: 800px;
+  flex: 2%;
+  background-color: #f1f1f1;
+  padding: 0px;
+}
+
+section:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 .main {
@@ -55,6 +71,24 @@ html, body {
   background-color: #aaa;
   width: 75%;
   padding: 15px;
+}
+
+.spacer1 {
+  padding: 20px;
+  background: #f1f1f1;
+}
+
+.spacer2 {
+  padding: 25px;
+  background: #333;
+}
+
+.footer {
+  font-size: 18px;
+  padding: 30px;
+  padding-left: 30px;
+  background: rgb(42, 66, 107);
+  color: rgb(255, 255, 255);
 }
 
 @media screen and (max-width: 700px) {
@@ -83,6 +117,14 @@ div.data {
   padding-bottom: 20px; 
   width: 1200px;
   height: 370px;  
+}
+
+.button {
+  background-color: #333;
+  text-align: center;
+  display: inline-block;
+  margin: 5px 5px;
+  cursor: pointer;
 }
 
 div.thumb {
@@ -116,8 +158,9 @@ div.thumb a:hover p {
 }
 
 .center {
+  background: rgb(255, 255, 255);
   margin: auto;
-  width: 1200px;
+  width: 1240px;
   padding-left: 20px;
   padding-right: 20px;
   padding-top: 50px;
