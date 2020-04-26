@@ -22,9 +22,10 @@ html, body {
 
 .navbar a {
   color: white;
-  padding: 14px 20px;
+  padding: 10px 15px;
   text-decoration: none;
   text-align: center;
+  margin: 4px 4px;
 }
 
 .navbar a:hover {
@@ -58,11 +59,12 @@ html, body {
 }
 
 .simBox {
+  border-radius: 5px;
   margin: auto;
   text-align: left;
-  width: 500px;
-  height: 500px;
+  width: 535px;
   padding: 15px;
+  padding-bottom: 20px;
   padding-top: 0px;
 }
 
@@ -84,7 +86,7 @@ html, body {
   color: rgb(255, 255, 255);
 }
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1360px) {
   .row, .navbar {   
     flex-direction: column-reverse;
   }
