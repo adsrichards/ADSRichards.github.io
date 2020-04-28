@@ -38,6 +38,11 @@ html, body {
   flex-wrap: wrap;
 }
 
+.row2 {  
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .sideR {
   height: 800px;
   flex: 40%;
@@ -79,8 +84,8 @@ html, body {
 }
 
 .footer {
-  font-size: 18px;
-  padding: 10px;
+  font-size: 22px;
+  padding: 30px;
   padding-left: 30px;
   background: rgb(42, 66, 107);
   color: rgb(255, 255, 255);
@@ -92,56 +97,52 @@ html, body {
   }
 }
 
-div.simulations {
+div.model {
   border-radius: 5px;
   border-style: solid;
-  border-color: #474747;
+  border-color: white;
   background: rgb(255, 255, 255);
   padding-left: 20px;
   padding-bottom: 20px; 
-  width: 1200px;
-  height: 370px;  
+  width: 100%; 
 }
 
 div.data {
   border-radius: 5px;
   border-style: solid;
-  border-color: #474747;
+  border-color: white;
   background: rgb(255, 255, 255);
   padding-left: 20px;
   padding-bottom: 20px; 
-  width: 1200px;
+  width: 70%;
   height: 370px;  
 }
 
-div.thumb {
-  display: inline-grid;
-  grid-template-columns: 250px 250px 250px 250px;
-  grid-gap: 60px;
-  padding: 0 50px 100px 50px;
+div.dataframe {
+  border-radius: 5px;
+  border-style: solid;
+  border-color: white;
+  background: rgb(255, 255, 255);
+  padding: 10px;
+  padding-top: 0px;
+  width: 30%;
+  height: 370px;  
 }
 
-div.thumb a {
-  opacity: 1;
-  display: inline-block;
-  text-decoration: none;
-  width: 250px;
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
 }
 
-div.thumb a p {
-  text-decoration: none;
-  white-space: nowrap;
-  text-align: center;
-  margin: 0;
-  font-family: 'Helvetica';
-  font-size: 16px;
-  color: #000000;
-  background-color: #93b0ff;
-  min-width: 256px;
-  opacity: 0.8;
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 7px;
 }
-div.thumb a:hover p {
-  opacity: 0.6;
+
+tr:nth-child(even) {
+  background-color: #dddddd;
 }
 
 .center {
