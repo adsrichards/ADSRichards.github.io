@@ -19,47 +19,62 @@
 </div>
 
 <div class="spacer1"> </div>
-
 <div class="row">
-  <div class="sideL">
-  </div>
+  <div class="sideL"></div>
   <div class="main">
     <div class="model">  
       <h2>The Model</h2>
       <p>
-        From en.wikipedia.org/wiki/Vicsek_model:
+        From <a href="https://en.wikipedia.org/wiki/Vicsek_model" target="_blank" style="color: rgb(57, 91, 158); text-decoration: none;">en.wikipedia.org/wiki/Vicsek_model</a>:
       </p>
+      <div class="quote">
+        <p>
+          The Vicsek model is a mathematical model used to describe active matter. 
+          One motivation of the study of active matter by physicists is the rich 
+          phenomenology associated to this field. Collective motion and swarming 
+          are among the most studied phenomena. Within the huge number of models 
+          that have been developed to catch such behavior from a microscopic description, 
+          the most famous is the model introduced by Tamás Vicsek et al. in 1995.[1]
+        </p>
+        <p>
+          Physicists have a great interest in this model as it is minimal and describes 
+          a kind of universality. It consists in point-like self-propelled particles that 
+          evolve at constant speed and align their velocity with their neighbours' one in 
+          presence of noise. Such a model shows collective motion at high density of 
+          particles or low noise on the alignment. 
+        </p>
+      </div>
       <p>
-        "The Vicsek model is a mathematical model used to describe active matter. 
-        One motivation of the study of active matter by physicists is the rich 
-        phenomenology associated to this field. Collective motion and swarming 
-        are among the most studied phenomena. Within the huge number of models 
-        that have been developed to catch such behavior from a microscopic description, 
-        the most famous is the model introduced by Tamás Vicsek et al. in 1995.[1]
-      </p>
-      <p>
-        Physicists have a great interest in this model as it is minimal and describes 
-        a kind of universality. It consists in point-like self-propelled particles that 
-        evolve at constant speed and align their velocity with their neighbours' one in 
-        presence of noise. Such a model shows collective motion at high density of 
-        particles or low noise on the alignment." 
-      </p>
-      <p>
-        Each particle is described by a position, r_i, and a velocity, v_i.
-        Particles always travel at the same velocity, v=|v_i|, so that the velocity for each particle
-        may be written as v_i = v(cos t_i, sin t_i), where t_i gives the direction of motion and v is a constant.
+        Each particle is described by a position, <img src="img/Vicsek/math/vec_r.svg"></img><sub><img src="img/Vicsek/math/i.svg"></img></sub>, and a velocity, <img src="img/Vicsek/math/vec_v.svg"></img><sub><img src="img/Vicsek/math/i.svg"></img></sub>.
+        Particles always travel at the same velocity, <img src="img/Vicsek/math/v.svg"></img> = |<img src="img/Vicsek/math/vec_v.svg"></img><sub><img src="img/Vicsek/math/i.svg"></img></sub>|, so that the velocity for each particle
+        may be written as <img src="img/Vicsek/math/vec_v.svg"></img><sub><img src="img/Vicsek/math/i.svg"></img></sub> = <img src="img/Vicsek/math/v.svg"></img>(<img src="img/Vicsek/math/cos_theta.svg"></img><sub><img src="img/Vicsek/math/i.svg"></img></sub>, 
+        <img src="img/Vicsek/math/sin_theta.svg"></img><sub><img src="img/Vicsek/math/i.svg"></img></sub>), where <img src="img/Vicsek/math/theta.svg"></img><sub><img src="img/Vicsek/math/i.svg"></img></sub> gives the direction of motion for each particle and 
+        <img src="img/Vicsek/math/v.svg"></img> is a constant.
       </p>
       <p>
         After each time step, the direction of motion for each particle is updated to be the average of all of its 
-        neighbours that fall within a cutoff radius, r, plus some uniform random noise, n.
+        neighbours that fall within a cutoff radius, <img src="img/Vicsek/math/r.svg"></img>, plus some uniform random noise, <img src="img/Vicsek/math/eta.svg"></img><sub><img src="img/Vicsek/math/i.svg"></img></sub>.
       </p>
-      <img src="img/Vicsek/math/test.svg"></img>
-      <h4>Reference</h4>
-      <p>[1] arXiv:cond-mat/0611743</p>
+      <p>
+        <img src="img/Vicsek/math/r_eq.svg"></img>,  &nbsp; and<br />
+        <img src="img/Vicsek/math/theta_eq.svg"></img>
+      </p>
+      <p>
+        When the noise is great enough, the particles will no longer move in a common 
+        direction and the average directed velocity of particles will be zero. 
+        At this point the system is said to have undergone a phase transition from 
+        a system with directed motion to a system with undirected motion.
+      </p>
     </div>
-    <div class="row2">
+    <div class="row">
       <div class="data">
         <h2>Data</h2>
+        <div class="row">
+          <img src="img/Vicsek/png/v_av.png"></img>
+          <div class=spacer3></div>
+          <div class=figure1>b</div>
+          <p>view data generation code (C++)  view data analysis code (Python)</p>
+        </div>
       </div>
       <div class="dataframe">
         <h3 style="text-align:center">Dataframe</h3>
@@ -106,6 +121,10 @@
           </tr>
         </table>
       </div>
+    </div>
+    <div>
+      <h4>Reference</h4>
+      <p>[1] arXiv:cond-mat/0611743</p>
     </div>
   </div>
   <div class="sideR">

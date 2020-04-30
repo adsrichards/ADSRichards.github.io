@@ -34,31 +34,27 @@ html, body {
 }
 
 .row {  
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.row2 {  
+  height: 100%;
   display: flex;
   flex-wrap: wrap;
 }
 
 .sideR {
-  height: 800px;
-  flex: 40%;
+  flex: 35%;
   background-color: #f1f1f1;
   padding: 20px;
 }
 
 .sideL {
-  height: 800px;
   flex: 2%;
   background-color: #f1f1f1;
   padding: 0px;
 }
 
 .main {
-  flex: 55%;
+  margin: auto;
+  flex: 60%;
+  width: 1000px;
   background-color: white;
   padding: 20px;
 }
@@ -73,6 +69,20 @@ html, body {
   padding-top: 0px;
 }
 
+.quote {
+  margin: auto;
+  background-color: rgb(179, 190, 212);
+  padding: 1px 15px 1px 15px;
+}
+
+.figure1 {
+  text-align: center;
+  background-color: #aaa;
+  width: 250px;
+  height: 260px;
+  padding: 15px;
+}
+
 .spacer1 {
   padding: 20px;
   background: #f1f1f1;
@@ -83,6 +93,11 @@ html, body {
   background: #333;
 }
 
+.spacer3 {
+  width: 5%;
+  background: white;
+}
+
 .footer {
   font-size: 22px;
   padding: 30px;
@@ -91,7 +106,7 @@ html, body {
   color: rgb(255, 255, 255);
 }
 
-@media screen and (max-width: 1360px) {
+@media screen and (max-width: 1540px) {
   .row, .navbar {   
     flex-direction: column-reverse;
   }
@@ -111,7 +126,6 @@ div.data {
   border-radius: 5px;
   border-style: solid;
   border-color: white;
-  background: rgb(255, 255, 255);
   padding-left: 20px;
   padding-bottom: 20px; 
   width: 70%;
@@ -123,9 +137,9 @@ div.dataframe {
   border-style: solid;
   border-color: white;
   background: rgb(255, 255, 255);
-  padding: 10px;
+  padding: 0px;
   padding-top: 0px;
-  width: 30%;
+  width: 25%;
   height: 370px;  
 }
 
