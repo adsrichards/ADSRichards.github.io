@@ -53,7 +53,8 @@
       </p>
       <p>
         After each time step, the direction of motion for each particle is updated to be the average of all of its 
-        neighbours that fall within a cutoff radius, <img src="img/Vicsek/math/r.svg"></img>, plus some uniform random noise, <img src="img/Vicsek/math/eta.svg"></img><sub><img src="img/Vicsek/math/i.svg"></img></sub>.
+        neighbours that fall within a cutoff radius, <img src="img/Vicsek/math/r.svg"></img>, plus a uniform random noise variable, 
+        <img src="img/Vicsek/math/eta.svg"></img><sub><img src="img/Vicsek/math/i.svg"></img></sub> <img src="img/Vicsek/math/sim_U_eta.svg"></img>.
       </p>
       <p>
         <img src="img/Vicsek/math/r_eq.svg"></img>,  &nbsp; and<br />
@@ -63,7 +64,7 @@
         When the noise is great enough, the particles will no longer move in a common 
         direction and the average directed velocity of particles will be zero. 
         At this point the system is said to have undergone a phase transition from 
-        a system with directed motion to a system with undirected motion.
+        a system with collective motion to a system with randomly moving particles.
       </p>
     </div>
     <div class="row">
@@ -131,8 +132,8 @@
     <h2>Simulation</h2>
     <div class="simBox">
       <div id="NosSlideContainer">
-        <p>Noise: n = <span id="Nos"></span></p>
-        <input type="range" min="0" max="0.5" value="0" step="0.001" class='slider' id="NosRange">
+        <p>Noise: <img src="img/Vicsek/math/eta.svg"></img> = <span id="Nos"></span></p>
+        <input type="range" min="0" max="0.8" value="0" step="0.001" class='slider' id="NosRange">
       </div>
       <script>
         var NosSlider = document.getElementById("NosRange");
