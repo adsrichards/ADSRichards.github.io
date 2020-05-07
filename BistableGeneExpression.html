@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title> Addison Richards - Bistable Gene Expression </title>
+<link rel="stylesheet" type="text/css" href="css/simulations.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+
+<div class="header">
+  <h1> </h1>
+</div>
+
+<div class="navbar">
+  <a href="index.html">Projects</a>
+  <a href="about.html">About Me</a>
+  <a href="doc/Resume_ARichards_May_2020.pdf" target="_blank">Resume</a>
+</div>
+
+<div class="spacer1"> </div>
+<div class="row">
+  <div class="sideL"></div>
+  <div class="main">
+    <div class="model">  
+      <h2>The Model</h2>
+      <div class="quote">
+        <p>
+          Bistable gene expression systems are, in a sense, the cellular equivalent of a 
+          transistor and therefore may function within the cell as a component in performing 
+          logical operations. In practice some switching mechanisms can be controlled by 
+          varying some continuous (experimentally controllable) parameters. However, when 
+          attempting to model bistable systems, the parameter estimates obtained via the 
+          standard fitting procedure are often of low accuracy due to the variability of 
+          biological experiments. This effect is pronounced in unoptimized experiments. 
+          Optimal experimental design (OED) procedures allow experimenters to select the 
+          experiment which best reduces parameter estimation error.
+        </p>
+      </div>
+    </div>
+    <div class="data">
+      <h2>Data</h2>
+      <div class="row2">
+        <div class=figure2>
+          <img src="img/BistableGeneExpression/png/Scurve_Hist.png" style="width: 460px; height: auto;"></img>
+        </div>
+        <div class=figure2>
+          <img src="img/BistableGeneExpression/png/Logist_Dip.png" style="width: 460px; height: auto;"></img>
+        </div>
+      </div>
+    </div>
+    <div>
+      <h4>Reference</h4>
+      <p>[1] <a href="https://doi.org/10.1016/j.ifacol.2019.12.267" target="_blank" style="color: rgb(57, 91, 158); text-decoration: none;">https://doi.org/10.1016/j.ifacol.2019.12.267</a></p>
+    </div>
+  </div>
+  <div class="sideR">
+    <h2>Simulation</h2>
+    <div class="simBox">
+        <!--
+      <div id="uSlideContainer">
+        <p>Input: u = <span id="u"></span></p>
+        <input type="range" min="0" max="1.6" value="0" step="0.001" class='slider' id="uRange">
+      </div>
+      <script>
+        var NosSlider = document.getElementById("NosRange");
+        var NosOutput = document.getElementById("Nos");
+        NosOutput.innerHTML = NosSlider.value;
+        NosSlider.oninput = function() {NosOutput.innerHTML = this.value;}
+      </script>
+      -->
+      <img src="img/BistableGeneExpression/gif/TimeSeries.gif" style="width: 580px; height: auto;"></img>
+    </div>
+  </div>
+</div>
+
+<div class="spacer1"> </div>
+<div class="spacer2"> </div>
+
+<div class="footer">
+  <h1> </h1>
+</div>
+
+</body>
+</html>
