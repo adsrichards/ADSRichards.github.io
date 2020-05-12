@@ -84,6 +84,7 @@ section:after {
 }
 
 .footer {
+  height: 100%;
   font-size: 18px;
   padding: 30px;
   padding-left: 30px;
@@ -104,7 +105,7 @@ div.simulations {
   background: rgb(255, 255, 255);
   padding-left: 20px;
   padding-bottom: 20px; 
-  width: 1200px;
+  width: 1020px;
   height: 370px;  
 }
 
