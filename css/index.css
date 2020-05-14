@@ -132,7 +132,7 @@ div.thumb {
   display: inline-grid;
   grid-template-columns: 250px 250px 250px 250px;
   grid-gap: 60px;
-  padding: 0 50px 100px 50px;
+  padding: 0 50px 50px 50px;
 }
 
 div.thumb a {
