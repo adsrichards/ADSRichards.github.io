@@ -88,19 +88,33 @@
     <div class="simBox">
       <div id="NosSlideContainer">
         <p>Noise: <img src="img/Vicsek/math/eta.svg"></img> = <span id="Nos"></span></p>
-        <input type="range" min="0" max="1.6" value="0" step="0.001" class='slider' id="NosRange">
+        <input type="range" min="0" max="0.8" value="0.2" step="0.001" class='slider' id="NosRange">
+      </div>
+      <div id="VelSlideContainer">
+        <p>Velocity: <img src="img/Vicsek/math/v.svg"></img> = <span id="Vel"></span></p>
+        <input type="range" min="2.0" max="4.5" value="3.0" step="0.01" class='slider' id="VelRange">
       </div>
       <script>
         var NosSlider = document.getElementById("NosRange");
         var NosOutput = document.getElementById("Nos");
         NosOutput.innerHTML = NosSlider.value;
         NosSlider.oninput = function() {NosOutput.innerHTML = this.value;}
+
+        var VelSlider = document.getElementById("VelRange");
+        var VelOutput = document.getElementById("Vel");
+        VelOutput.innerHTML = VelSlider.value;
+        VelSlider.oninput = function() {VelOutput.innerHTML = this.value;}
       </script>
+      <p id="demo"></p>
       <canvas width = "500" height = "500" id = "c"></canvas>
+      <p>Click the canvas to generate new particles!</p>
       <script>
-    
+        document.getElementById("c").onmousemove = function(event) {setMouseCoords(event)};
         //==================Canvas=========================
         var canvas = document.getElementById('c');
+
+        canvas.addEventListener("mousedown", doMouseDown, false);
+        canvas.addEventListener("mouseup", doMouseUp, false);
         var gl = canvas.getContext('webgl2');
     
         //==================Shaders========================
@@ -199,14 +213,15 @@
           while (currentDate - date < milliseconds)
         }
     
-        function bird(x, y) {
-          this.v = 2.5;
+        function square(x, y) {
+          var VelVal = VelSlider.value;
+          var Vel = parseFloat(VelVal);
+          this.v = Vel;
           this.theta = 0.5;
           this.x = x;
           this.y = y;
     
           this.newPos = function(theta) {
-            var L = 500;
             this.theta = theta;
             this.x += this.v*Math.cos(this.theta);
             this.y += this.v*Math.sin(this.theta);
@@ -224,7 +239,7 @@
         {
           var xi = Math.floor(Math.random()*L);
           var yi = Math.floor(Math.random()*L);
-          Br.push(new bird(xi,yi));
+          Br.push(new square(xi,yi));
         }
     
         //==================Build Scene====================
@@ -233,6 +248,10 @@
         
         gl.clearColor(0.2, 0.2, 0.2, 0.9);
         
+        var isMousePressed = false;
+        var mouse_x;
+        var mouse_y;
+
         function render(){
           gl.clearDepth(1.0);
           gl.uniform2f(resolutionUniformLocation, gl.canvas.width, gl.canvas.height);
@@ -242,11 +261,11 @@
           var NosVal = NosSlider.value;
           var Nos = parseFloat(NosVal);
     
-          for(var i=0; i< BN; ++i)
+          for(var i=0; i< Br.length; ++i)
           {
             var nbrx_av = 0;
             var nbry_av = 0;
-            for(var j=0; j<BN; ++j){
+            for(var j=0; j<Br.length; ++j){
               var Brijx = Br[i].x - Br[j].x;
               var Brijy = Br[i].y - Br[j].y;
               if( (Brijx*Brijx + Brijy*Brijy) < 25*25 )
@@ -257,13 +276,36 @@
             }
             var newTheta = Math.atan2(nbry_av,nbrx_av);
             Br[i].newPos((newTheta + Nos*(2*Math.random()-1))%(2*Math.PI));
-              
+            var VelVal = VelSlider.value;
+            var Vel = parseFloat(VelVal);
+            Br[i].v=Vel;
           }
-          
-          pause(10);
+
+          if(isMousePressed)
+          {
+            Br.shift();
+            Br.push(new square(mouse_x,mouse_y));
+          }
+
+          pause(1);
           requestAnimationFrame(render);
         }
         render();
+
+        function doMouseDown(event) {
+          isMousePressed = true;
+        }
+
+        function doMouseUp() {
+          isMousePressed = false;
+        }
+
+        function setMouseCoords(e) {
+          var rect = canvas.getBoundingClientRect();
+          mouse_x = event.clientX - rect.left;
+          mouse_y = rect.bottom - event.clientY;
+        }
+
       </script>
     </div>
   </div>
