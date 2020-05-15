@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Addison Richards - Flying Simulation</title>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    canvas {
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <script src="js/three.js"></script>
+  <script>
+    var scene = new THREE.Scene();
+    var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+    var renderer = new THREE.WebGLRenderer();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    var geometry = new THREE.BoxGeometry();
+    var material = new THREE.MeshBasicMaterial({ color: 0x3f80e8 });
+
+    var Lz = 50.0;
+    var Lx = 25.0;
+    var Ly = 20.0;
+
+    var cN = 25;
+    var cube = [];
+    var cubeRotation = [];
+
+    for (var i = 0; i < cN; i++) {
+      cube.push(new THREE.Mesh(geometry, material));
+      scene.add(cube[i]);
+      cube[i].position.x = (1.0 - 2.0 * Math.random()) * Lx;
+      cube[i].position.y = (1.0 - 2.0 * Math.random()) * Ly;
+      cube[i].position.z = Math.random() * Lz;
+
+      cubeRotation.push((1.0 - 2.0 * Math.random()) * 0.01);
+      cubeRotation.push((1.0 - 2.0 * Math.random()) * 0.01);
+
+    }
+
+    camera.position.z = 50.0;
+
+    var animate = function () {
+      requestAnimationFrame(animate);
+
+      for (var i = 0; i < cube.length; i++) {
+        cube[i].position.z += 0.1;
+        cube[i].rotation.x += cubeRotation[i];
+        cube[i].rotation.y += cubeRotation[i];
+
+        if (cube[i].position.z > Lz) {
+          cube[i].position.z = 0.0;
+          cube[i].position.x = (1.0 - 2.0 * Math.random()) * Lx;
+          cube[i].position.y = (1.0 - 2.0 * Math.random()) * Ly;
+        }
+      }
+
+      renderer.render(scene, camera);
+    };
+
+    animate();
+  </script>
+</body>
+
+</html>
