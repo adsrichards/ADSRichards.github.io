@@ -1,162 +1,168 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title> Addison Richards - Bistable Gene Expression </title>
-<link rel="stylesheet" type="text/css" href="css/simulations.css">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <title> Addison Richards - Bistable Gene Expression </title>
+  <link rel="stylesheet" type="text/css" href="css/simulations.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 </head>
+
 <body>
 
-<div class="header">
-  <h1> </h1>
-</div>
-
-<div class="navbar">
-  <a href="index.html">Projects</a>
-  <a href="about.html">About Me</a>
-  <a href="doc/Resume_ARichards_May_2020.pdf" target="_blank">Resume</a>
-</div>
-
-<div class="spacer1"> </div>
-<div class="row">
-  <div class="sideL"></div>
-  <div class="main">
-    <p>
-      This is a quick demo of the stochastic gene expression model that I studied during the winter of 2019 
-      as part of my research assistantship. I helped our group by implementing the Gillespie algorithm for this model, 
-      generating lots of data, and performing some data analysis. For more information, please see our recently 
-      published conference paper [1].
-    </p>
-    <div class="model">  
-      <h2>The Model</h2>
-      <div class="quote">
-        <p>
-          Bistable gene expression systems are, in a sense, the cellular equivalent of a 
-          transistor and therefore may function within the cell as a component in performing 
-          logical operations. In practice some switching mechanisms can be controlled by 
-          varying some continuous (experimentally controllable) parameters. However, when 
-          attempting to model bistable systems, the parameter estimates obtained via the 
-          standard fitting procedure are often of low accuracy due to the variability of 
-          biological experiments. This effect is pronounced in unoptimized experiments. 
-          Optimal experimental design (OED) procedures allow experimenters to select the 
-          experiment which best reduces parameter estimation error.
-        </p>
-      </div>
-    </div>
-    <div class="data">
-      <h2>Data</h2>
-      <div class="row2">
-        <div class=figure2>
-          <img src="img/BistableGeneExpression/png/Scurve_Hist.png" style="width: 460px; height: auto;"></img>
-        </div>
-        <div class=figure2>
-          <img src="img/BistableGeneExpression/png/Logist_Dip.png" style="width: 460px; height: auto;"></img>
-        </div>
-      </div>
-    </div>
-    <div>
-      <h4>Reference</h4>
-      <p>[1] <a href="https://doi.org/10.1016/j.ifacol.2019.12.267" target="_blank" style="color: rgb(57, 91, 158); text-decoration: none;">https://doi.org/10.1016/j.ifacol.2019.12.267</a></p>
-    </div>
+  <div class="header">
+    <h1> </h1>
   </div>
-  <div class="sideR">
-    <h2>Simulation</h2>
-    <div class="simBox">
-      <div id="uSlideContainer">
-        <p>Input: u = <span id="u"></span></p>
-        <input type="range" min="0" max="0.3" value="0.16" step="0.001" class='slider' id="uRange">
+
+  <div class="navbar">
+    <a href="index.html">Projects</a>
+    <a href="about.html">About Me</a>
+    <a href="doc/Resume_ARichards_May_2020.pdf" target="_blank">Resume</a>
+  </div>
+
+  <div class="spacer1"> </div>
+  <div class="row">
+    <div class="sideL"></div>
+    <div class="main">
+      <p>
+        This is a quick demo of the stochastic gene expression model that I studied during the winter of 2019
+        as part of my research assistantship. I helped our group by implementing the Gillespie algorithm for this model,
+        generating lots of data, and performing some data analysis. For more information, please see our recently
+        published conference paper [1].
+      </p>
+      <div class="model">
+        <h2>The Model</h2>
+        <div class="quote">
+          <p>
+            Bistable gene expression systems are, in a sense, the cellular equivalent of a
+            transistor and therefore may function within the cell as a component in performing
+            logical operations. In practice some switching mechanisms can be controlled by
+            varying some continuous (experimentally controllable) parameters. However, when
+            attempting to model bistable systems, the parameter estimates obtained via the
+            standard fitting procedure are often of low accuracy due to the variability of
+            biological experiments. This effect is pronounced in unoptimized experiments.
+            Optimal experimental design (OED) procedures allow experimenters to select the
+            experiment which best reduces parameter estimation error.
+          </p>
+        </div>
       </div>
-      <script>
-        var uSlider = document.getElementById("uRange");
-        var uOutput = document.getElementById("u");
-        uOutput.innerHTML = uSlider.value;
-        uSlider.oninput = function() {uOutput.innerHTML = this.value;}
-      </script>
-      <div id="graph" style="width:500px;height:500px;"></div>
-      <div style="padding-top:15px;">
-        <a href="./doc/BistableGeneExpression/Autocorrelations.pdf" target="_blank" style="color: #424242; text-decoration: none; border-style: solid; border-color: #424242; padding: 3px;"><b>view autocorrelation function</b></a>
+      <div class="data">
+        <h2>Data</h2>
+        <div class="row2">
+          <div class=figure2>
+            <img src="img/BistableGeneExpression/png/Scurve_Hist.png" style="width: 460px; height: auto;"></img>
+          </div>
+          <div class=figure2>
+            <img src="img/BistableGeneExpression/png/Logist_Dip.png" style="width: 460px; height: auto;"></img>
+          </div>
+        </div>
       </div>
-      <script>
-        var N = 200;
-        var W=90.0;
-        var x = [], y = [], z = [];
+      <div>
+        <h4>Reference</h4>
+        <p>[1] <a href="https://doi.org/10.1016/j.ifacol.2019.12.267" target="_blank"
+            style="color: rgb(57, 91, 158); text-decoration: none;">https://doi.org/10.1016/j.ifacol.2019.12.267</a></p>
+      </div>
+    </div>
+    <div class="sideR">
+      <h2>Simulation</h2>
+      <div class="simBox">
+        <div id="uSlideContainer">
+          <p>Input: u = <span id="u"></span></p>
+          <input type="range" min="0" max="0.3" value="0.16" step="0.001" class='slider' id="uRange">
+        </div>
+        <script>
+          var uSlider = document.getElementById("uRange");
+          var uOutput = document.getElementById("u");
+          uOutput.innerHTML = uSlider.value;
+          uSlider.oninput = function () { uOutput.innerHTML = this.value; }
+        </script>
+        <div id="graph" style="width:500px;height:500px;"></div>
+        <div style="padding-top:15px;">
+          <a href="./doc/BistableGeneExpression/Autocorrelations.pdf" target="_blank"
+            style="color: #424242; text-decoration: none; border-style: solid; border-color: #424242; padding: 3px;"><b>view
+              autocorrelation function</b></a>
+        </div>
+        <script>
+          var N = 200;
+          var W = 90.0;
+          var x = [], y = [], z = [];
 
-        for (i = 0; i < N; i++) {
-          x[i] = i/(N-1);
-          y[i] = 0;
-          z[i] = 0;
-        }
-        y[N-1] = 1.5*90;
-
-        Plotly.plot('graph', [{
-          x: x,
-          y: z,
-          mode: 'lines+markers',
-        }], {
-          title: "<b>Time Series</b>",
-          font: {
-          family: 'Helvetica',
-          size: 16,
-          color: '#000'
-          },
-          xaxis: {range: [0, 200], title: "Time"},
-          yaxis: {range: [0, 3.5], title: "Concentration"}
-        }, {showSendToCloud:true})
-
-        function compute () {
-          var xsteps = 0;
-          for (var t = 0; t < 400; t++) {
-            var W=90.0; a0=0.5; a=3.0; k=9.0; n=3.0;
-            var uVal = uSlider.value;
-            var u = parseFloat(uVal);
-            var Y = y[N-1];
-            var r = W*(a0 + a*Math.pow((u+Y/W),n)/(k + Math.pow((u+Y/W),n)));
-            var xstep = Math.log(1.0/Math.random())/(r+Y);
-            xsteps += xstep;
-            if (Math.random() < r/(r+Y)){ y[N-1] += 1;}
-            else {y[N-1] -= 1}
+          for (i = 0; i < N; i++) {
+            x[i] = i / (N - 1);
+            y[i] = 0;
+            z[i] = 0;
           }
-          for (var i = 0; i < N-1; i++) {
-              x[i] = x[i+1] - xsteps;
-              y[i] = y[i+1];
-              z[i] = y[i]/W;
-          }
-          x[N-1] = 200;
-          z[N-1] = y[N-1]/W;
-        }
+          y[N - 1] = 1.5 * 90;
 
-        function update () {
-          compute();
-
-          Plotly.animate('graph', {
-            data: [{x: x, y: z}]
-          }, {
-            transition: {
-              duration: 0,
+          Plotly.plot('graph', [{
+            x: x,
+            y: z,
+            mode: 'lines+markers',
+          }], {
+            title: "<b>Time Series</b>",
+            font: {
+              family: 'Helvetica',
+              size: 16,
+              color: '#000'
             },
-            frame: {
-              duration: 0,
-              redraw: false,
+            xaxis: { range: [0, 200], title: "Time" },
+            yaxis: { range: [0, 3.5], title: "Concentration" }
+          }, { showSendToCloud: true })
+
+          function compute() {
+            var xsteps = 0;
+            for (var t = 0; t < 400; t++) {
+              var W = 90.0; a0 = 0.5; a = 3.0; k = 9.0; n = 3.0;
+              var uVal = uSlider.value;
+              var u = parseFloat(uVal);
+              var Y = y[N - 1];
+              var r = W * (a0 + a * Math.pow((u + Y / W), n) / (k + Math.pow((u + Y / W), n)));
+              var xstep = Math.log(1.0 / Math.random()) / (r + Y);
+              xsteps += xstep;
+              if (Math.random() < r / (r + Y)) { y[N - 1] += 1; }
+              else { y[N - 1] -= 1 }
             }
-          });
+            for (var i = 0; i < N - 1; i++) {
+              x[i] = x[i + 1] - xsteps;
+              y[i] = y[i + 1];
+              z[i] = y[i] / W;
+            }
+            x[N - 1] = 200;
+            z[N - 1] = y[N - 1] / W;
+          }
+
+          function update() {
+            compute();
+
+            Plotly.animate('graph', {
+              data: [{ x: x, y: z }]
+            }, {
+              transition: {
+                duration: 0,
+              },
+              frame: {
+                duration: 0,
+                redraw: false,
+              }
+            });
+
+            requestAnimationFrame(update);
+          }
 
           requestAnimationFrame(update);
-        }
-
-        requestAnimationFrame(update);
-      </script>
+        </script>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="spacer1"> </div>
-<div class="spacer2"> </div>
+  <div class="spacer1"> </div>
+  <div class="spacer2"> </div>
 
-<div class="footer">
-  <h1> </h1>
-</div>
+  <div class="footer">
+    <h1> </h1>
+  </div>
 
 </body>
+
 </html>

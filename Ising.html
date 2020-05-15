@@ -1,86 +1,93 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title> Addison Richards - Ising Model </title>
-<link rel="stylesheet" type="text/css" href="css/simulations.css">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Addison Richards - Ising Model </title>
+  <link rel="stylesheet" type="text/css" href="css/simulations.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
 <body>
 
-<div class="header">
-  <h1> </h1>
-</div>
-
-<div class="navbar">
-  <a href="index.html">Projects</a>
-  <a href="about.html">About Me</a>
-  <a href="doc/Resume_ARichards_May_2020.pdf" target="_blank">Resume</a>
-</div>
-
-<div class="spacer1"> </div>
-
-<div class="row">
-  <div class="sideL">
+  <div class="header">
+    <h1> </h1>
   </div>
-  <div class="main">
-    <h2>The Model</h2>
-    <p>
-      From <a href="https://en.wikipedia.org/wiki/Ising_model" target="_blank" style="color: rgb(57, 91, 158); text-decoration: none;">en.wikipedia.org/wiki/Ising_model</a>:
-    </p>
-    <div class="quote">
+
+  <div class="navbar">
+    <a href="index.html">Projects</a>
+    <a href="about.html">About Me</a>
+    <a href="doc/Resume_ARichards_May_2020.pdf" target="_blank">Resume</a>
+  </div>
+
+  <div class="spacer1"> </div>
+
+  <div class="row">
+    <div class="sideL">
+    </div>
+    <div class="main">
+      <h2>The Model</h2>
       <p>
-        The Ising model, named after the physicist Ernst Ising, is a mathematical model of ferromagnetism in 
-        statistical mechanics. The model consists of discrete variables that represent magnetic dipole moments 
-        of atomic "spins" that can be in one of two states (+1 or −1). The spins are arranged in a graph, 
-        usually a lattice (where the local structure repeats periodically in all directions), allowing each spin 
-        to interact with its neighbors. Neighboring spins that agree have a lower energy than those that disagree; 
-        the system tends to the lowest energy but heat disturbs this tendency, thus creating the possibility of 
-        different structural phases. The model allows the identification of phase transitions, as a simplified 
-        model of reality. The two-dimensional square-lattice Ising model is one of the simplest statistical models 
-        to show a phase transition.
+        From <a href="https://en.wikipedia.org/wiki/Ising_model" target="_blank"
+          style="color: rgb(57, 91, 158); text-decoration: none;">en.wikipedia.org/wiki/Ising_model</a>:
       </p>
-    </div>
-    <p>
-      When the temperature is low, the spins are mostly the same colour on average. When the temperature reaches a certain 
-      point, the spins don't tend to align with their neighbours anymore. Similar to how ice melts into water at exactly 
-      0 degrees Celsius. This is a simple example of how Monte Carlo algorithms such as the <a href="https://en.wikipedia.org/wiki/Metropolis%E2%80%93Hastings_algorithm" target="_blank" style="color: rgb(31, 73, 156); text-decoration: none;">Metropolis algorithm</a>
-      used here can be so useful for studying physical phenomena.
-    </p>
-    <h2>Data</h2>
-    <div class="data">
-      <div class="row2">
-        <div class=figure>
-          <img src="img/Ising/png/m.png"></img>
-        </div>
-        <div class=figure>
-          <img src="img/Ising/png/m_mcs.png"></img>
+      <div class="quote">
+        <p>
+          The Ising model, named after the physicist Ernst Ising, is a mathematical model of ferromagnetism in
+          statistical mechanics. The model consists of discrete variables that represent magnetic dipole moments
+          of atomic "spins" that can be in one of two states (+1 or −1). The spins are arranged in a graph,
+          usually a lattice (where the local structure repeats periodically in all directions), allowing each spin
+          to interact with its neighbors. Neighboring spins that agree have a lower energy than those that disagree;
+          the system tends to the lowest energy but heat disturbs this tendency, thus creating the possibility of
+          different structural phases. The model allows the identification of phase transitions, as a simplified
+          model of reality. The two-dimensional square-lattice Ising model is one of the simplest statistical models
+          to show a phase transition.
+        </p>
+      </div>
+      <p>
+        When the temperature is low, the spins are mostly the same colour on average. When the temperature reaches a
+        certain
+        point, the spins don't tend to align with their neighbours anymore. Similar to how ice melts into water at
+        exactly
+        0 degrees Celsius. This is a simple example of how Monte Carlo algorithms such as the <a
+          href="https://en.wikipedia.org/wiki/Metropolis%E2%80%93Hastings_algorithm" target="_blank"
+          style="color: rgb(31, 73, 156); text-decoration: none;">Metropolis algorithm</a>
+        used here can be so useful for studying physical phenomena.
+      </p>
+      <h2>Data</h2>
+      <div class="data">
+        <div class="row2">
+          <div class=figure>
+            <img src="img/Ising/png/m.png"></img>
+          </div>
+          <div class=figure>
+            <img src="img/Ising/png/m_mcs.png"></img>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="sideR">
-    <h2>Simulation</h2>
-    <div class="simBox">
-      <div id="Tslidecontainer">
-        <p>Temperature:</p>
-        <input type="range" min="0.1" max="4.0" value="2.269" step="0.001" class='slider' id="TRange">
-        <p>T = <span id="T"></span></p>
-      </div>
-      <script>
-        var Tslider = document.getElementById("TRange");
-        var Toutput = document.getElementById("T");
-        Toutput.innerHTML = Tslider.value;
-        Tslider.oninput = function() {Toutput.innerHTML = this.value;}
-      </script>
-      <canvas width = "500" height = "500" id = "c"></canvas>
-      <script>
-        //==================Canvas=========================
-        var canvas = document.getElementById('c');
-        var gl = canvas.getContext('webgl2');
-    
-        //==================Shaders========================
-        var vertexShaderSource = `#version 300 es
+    <div class="sideR">
+      <h2>Simulation</h2>
+      <div class="simBox">
+        <div id="Tslidecontainer">
+          <p>Temperature:</p>
+          <input type="range" min="0.1" max="4.0" value="2.269" step="0.001" class='slider' id="TRange">
+          <p>T = <span id="T"></span></p>
+        </div>
+        <script>
+          var Tslider = document.getElementById("TRange");
+          var Toutput = document.getElementById("T");
+          Toutput.innerHTML = Tslider.value;
+          Tslider.oninput = function () { Toutput.innerHTML = this.value; }
+        </script>
+        <canvas width="500" height="500" id="c"></canvas>
+        <script>
+          //==================Canvas=========================
+          var canvas = document.getElementById('c');
+          var gl = canvas.getContext('webgl2');
+
+          //==================Shaders========================
+          var vertexShaderSource = `#version 300 es
           in vec2 a_position;
           uniform vec2 u_resolution;	
           void main() {
@@ -90,8 +97,8 @@
             gl_Position = vec4(clipSpace, 0, 1);
           }
         `;
-         
-        var fragmentShaderSource = `#version 300 es
+
+          var fragmentShaderSource = `#version 300 es
           precision mediump float;
           uniform vec4 u_color;
           out vec4 outColor;     
@@ -99,144 +106,145 @@
             outColor = u_color;
           }
         `;
-    
-        function createShader(gl, type, source) {
-          var shader = gl.createShader(type);
-          gl.shaderSource(shader, source);
-          gl.compileShader(shader);
-          var success = gl.getShaderParameter(shader, gl.COMPILE_STATUS);
-          if (success) {
-            return shader;
-          }     
-          gl.deleteShader(shader);
-        }
-    
-        var vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
-        var fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
-    
-        function createProgram(gl, vertexShader, fragmentShader) {
-          var program = gl.createProgram();
-          gl.attachShader(program, vertexShader);
-          gl.attachShader(program, fragmentShader);
-          gl.linkProgram(program);
-          var success = gl.getProgramParameter(program, gl.LINK_STATUS);
-          if (success) {
-            return program;
+
+          function createShader(gl, type, source) {
+            var shader = gl.createShader(type);
+            gl.shaderSource(shader, source);
+            gl.compileShader(shader);
+            var success = gl.getShaderParameter(shader, gl.COMPILE_STATUS);
+            if (success) {
+              return shader;
+            }
+            gl.deleteShader(shader);
           }
-          gl.deleteProgram(program);
-        }
-    
-        var program = createProgram(gl, vertexShader, fragmentShader);
-        
-        //==================Initialization=================
-        var positionAttributeLocation = gl.getAttribLocation(program, 'a_position');
-        var resolutionUniformLocation = gl.getUniformLocation(program, "u_resolution");
-        var colorLocation = gl.getUniformLocation(program, "u_color");
-        
-        var positionBuffer = gl.createBuffer();
-        gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
-        function setRectangle(gl, x, y, width, height) {
-          var x1 = x;
-          var x2 = x + width;
-          var y1 = y;
-          var y2 = y + height;
-          
-          var positions = [
-            x1, y1,
-            x2, y1,
-            x1, y2,
-            x1, y2,
-            x2, y1,
-            x2, y2
-          ];
-          
-          gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.DYNAMIC_DRAW);
-        }
-    
-        var vao = gl.createVertexArray();
-        gl.bindVertexArray(vao);
-        gl.enableVertexAttribArray(positionAttributeLocation);
-    
-        var size = 2;          
-        var type = gl.FLOAT;   
-        var normalize = false; 
-         var stride = 0;        
-        var offset = 0;        
-        gl.vertexAttribPointer(positionAttributeLocation, size, type, normalize, stride, offset);
-      
-        var T = 2.2691853142;
-        var L = 40;
-        var N = L*L;
-        var S = [];
-        var dx = 0;
-        var dy = 0;
-        for (var yi = 0; yi < L; ++yi){
-          for (var xi = 0; xi < L; ++xi){
-            S[yi + L*xi] = 1;
+
+          var vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
+          var fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
+
+          function createProgram(gl, vertexShader, fragmentShader) {
+            var program = gl.createProgram();
+            gl.attachShader(program, vertexShader);
+            gl.attachShader(program, fragmentShader);
+            gl.linkProgram(program);
+            var success = gl.getProgramParameter(program, gl.LINK_STATUS);
+            if (success) {
+              return program;
+            }
+            gl.deleteProgram(program);
           }
-        }
-    
-        //==================Functions======================
-        function randomInt(range){
-          return Math.floor(Math.random()*range);
-        }
-    
-        function pause(milliseconds) {
+
+          var program = createProgram(gl, vertexShader, fragmentShader);
+
+          //==================Initialization=================
+          var positionAttributeLocation = gl.getAttribLocation(program, 'a_position');
+          var resolutionUniformLocation = gl.getUniformLocation(program, "u_resolution");
+          var colorLocation = gl.getUniformLocation(program, "u_color");
+
+          var positionBuffer = gl.createBuffer();
+          gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+          function setRectangle(gl, x, y, width, height) {
+            var x1 = x;
+            var x2 = x + width;
+            var y1 = y;
+            var y2 = y + height;
+
+            var positions = [
+              x1, y1,
+              x2, y1,
+              x1, y2,
+              x1, y2,
+              x2, y1,
+              x2, y2
+            ];
+
+            gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.DYNAMIC_DRAW);
+          }
+
+          var vao = gl.createVertexArray();
+          gl.bindVertexArray(vao);
+          gl.enableVertexAttribArray(positionAttributeLocation);
+
+          var size = 2;
+          var type = gl.FLOAT;
+          var normalize = false;
+          var stride = 0;
+          var offset = 0;
+          gl.vertexAttribPointer(positionAttributeLocation, size, type, normalize, stride, offset);
+
+          var T = 2.2691853142;
+          var L = 40;
+          var N = L * L;
+          var S = [];
+          var dx = 0;
+          var dy = 0;
+          for (var yi = 0; yi < L; ++yi) {
+            for (var xi = 0; xi < L; ++xi) {
+              S[yi + L * xi] = 1;
+            }
+          }
+
+          //==================Functions======================
+          function randomInt(range) {
+            return Math.floor(Math.random() * range);
+          }
+
+          function pause(milliseconds) {
             const date = Date.now();
             let currentDate = null;
-            do { currentDate = Date.now();} 
-          while (currentDate - date < milliseconds)
-        }
-    
-      //==================Build Scene====================
-      gl.useProgram(program);
-      gl.bindVertexArray(vao);
-      
-      gl.clearColor(0.2, 0.2, 0.2, 0.9);
-      
-      function render(){
-        gl.clearDepth(1.0);
-        gl.uniform2f(resolutionUniformLocation, gl.canvas.width, gl.canvas.height);
-        gl.viewport(0.0, 0.0, canvas.width, canvas.height);
-        gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-    
-        var Tval = Tslider.value;
-        var T = parseFloat(Tval);
-    
-        for(var yi = 0; yi < L; ++yi){
-          for(var xi = 0; xi < L; ++xi){
-            setRectangle(gl, xi*12.5, yi*12.5, 8, 8);
-            var r = (S[yi + L*xi]+1)/2;
-            gl.uniform4f(colorLocation, r, r, r, 1);
-            gl.drawArrays(gl.TRIANGLES, 0, 6);
-          
-            var riy = Math.floor(Math.random()*L);;
-            var rix = Math.floor(Math.random()*L);;
-            var delE =  2*S[riy + L*rix]*(
-                      S[riy + L*((rix+1)%L)]
-                    + S[(riy+1)%L + L*rix]
-                    + S[riy + L*((rix+L-1)%L)]
-                    + S[(riy+L-1)%L + L*rix]
-                    )
-            if(delE < 0){S[riy + L*rix] *= -1;}
-            else if(Math.random() < Math.exp(-delE/T)){S[riy + L*rix] *= -1;}
+            do { currentDate = Date.now(); }
+            while (currentDate - date < milliseconds)
           }
-        }
-        pause(50);
-        requestAnimationFrame(render);
-      }
-      render();
-      </script>
+
+          //==================Build Scene====================
+          gl.useProgram(program);
+          gl.bindVertexArray(vao);
+
+          gl.clearColor(0.2, 0.2, 0.2, 0.9);
+
+          function render() {
+            gl.clearDepth(1.0);
+            gl.uniform2f(resolutionUniformLocation, gl.canvas.width, gl.canvas.height);
+            gl.viewport(0.0, 0.0, canvas.width, canvas.height);
+            gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+
+            var Tval = Tslider.value;
+            var T = parseFloat(Tval);
+
+            for (var yi = 0; yi < L; ++yi) {
+              for (var xi = 0; xi < L; ++xi) {
+                setRectangle(gl, xi * 12.5, yi * 12.5, 8, 8);
+                var r = (S[yi + L * xi] + 1) / 2;
+                gl.uniform4f(colorLocation, r, r, r, 1);
+                gl.drawArrays(gl.TRIANGLES, 0, 6);
+
+                var riy = Math.floor(Math.random() * L);;
+                var rix = Math.floor(Math.random() * L);;
+                var delE = 2 * S[riy + L * rix] * (
+                  S[riy + L * ((rix + 1) % L)]
+                  + S[(riy + 1) % L + L * rix]
+                  + S[riy + L * ((rix + L - 1) % L)]
+                  + S[(riy + L - 1) % L + L * rix]
+                )
+                if (delE < 0) { S[riy + L * rix] *= -1; }
+                else if (Math.random() < Math.exp(-delE / T)) { S[riy + L * rix] *= -1; }
+              }
+            }
+            pause(50);
+            requestAnimationFrame(render);
+          }
+          render();
+        </script>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="spacer1"> </div>
-<div class="spacer2"> </div>
+  <div class="spacer1"> </div>
+  <div class="spacer2"> </div>
 
-<div class="footer">
-  <h1> </h1>
-</div>
+  <div class="footer">
+    <h1> </h1>
+  </div>
 
 </body>
+
 </html>

@@ -1,124 +1,137 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title> Addison Richards - Vicsek Model </title>
-<link rel="stylesheet" type="text/css" href="css/simulations.css">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <title> Addison Richards - Vicsek Model </title>
+  <link rel="stylesheet" type="text/css" href="css/simulations.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
 <body>
 
-<div class="header">
-  <h1> </h1>
-</div>
-
-<div class="navbar">
-  <a href="index.html">Projects</a>
-  <a href="about.html">About Me</a>
-  <a href="doc/Resume_ARichards_May_2020.pdf" target="_blank">Resume</a>
-</div>
-
-<div class="spacer1"> </div>
-<div class="row">
-  <div class="sideL"></div>
-  <div class="main">
-    <div class="model">  
-      <h2>The Model</h2>
-      <p>
-        From <a href="https://en.wikipedia.org/wiki/Vicsek_model" target="_blank" style="color: rgb(57, 91, 158); text-decoration: none;">en.wikipedia.org/wiki/Vicsek_model</a>:
-      </p>
-      <div class="quote">
-        <p>
-          The Vicsek model is a mathematical model used to describe active matter. 
-          One motivation of the study of active matter by physicists is the rich 
-          phenomenology associated to this field. Collective motion and swarming 
-          are among the most studied phenomena. Within the huge number of models 
-          that have been developed to catch such behavior from a microscopic description, 
-          the most famous is the model introduced by Tamás Vicsek et al. in 1995.[1]
-        </p>
-        <p>
-          Physicists have a great interest in this model as it is minimal and describes 
-          a kind of universality. It consists in point-like self-propelled particles that 
-          evolve at constant speed and align their velocity with their neighbours' one in 
-          presence of noise. Such a model shows collective motion at high density of 
-          particles or low noise on the alignment. 
-        </p>
-      </div>
-      <p>
-        Each particle is described by a position, <img src="img/Vicsek/math/vec_r.svg"></img><sub><img src="img/Vicsek/math/i.svg"></img></sub>, and a velocity, <img src="img/Vicsek/math/vec_v.svg"></img><sub><img src="img/Vicsek/math/i.svg"></img></sub>.
-        Particles always travel at the same velocity, <img src="img/Vicsek/math/v.svg"></img> = |<img src="img/Vicsek/math/vec_v.svg"></img><sub><img src="img/Vicsek/math/i.svg"></img></sub>|, so that the velocity for each particle
-        may be written as <img src="img/Vicsek/math/vec_v.svg"></img><sub><img src="img/Vicsek/math/i.svg"></img></sub> = <img src="img/Vicsek/math/v.svg"></img>(<img src="img/Vicsek/math/cos_theta.svg"></img><sub><img src="img/Vicsek/math/i.svg"></img></sub>, 
-        <img src="img/Vicsek/math/sin_theta.svg"></img><sub><img src="img/Vicsek/math/i.svg"></img></sub>), where <img src="img/Vicsek/math/theta.svg"></img><sub><img src="img/Vicsek/math/i.svg"></img></sub> gives the direction of motion for each particle and 
-        <img src="img/Vicsek/math/v.svg"></img> is a constant.
-      </p>
-      <p>
-        After each time step, the direction of motion for each particle is updated to be the average of all of its 
-        neighbours that fall within a cutoff radius, <img src="img/Vicsek/math/r.svg"></img>, plus a uniform random noise variable, 
-        <img src="img/Vicsek/math/eta.svg"></img><sub><img src="img/Vicsek/math/i.svg"></img></sub> <img src="img/Vicsek/math/sim_U_eta.svg"></img>.
-      </p>
-      <p>
-        <img src="img/Vicsek/math/r_eq.svg"></img>,  &nbsp; and<br />
-        <img src="img/Vicsek/math/theta_eq.svg"></img>
-      </p>
-      <p>
-        When the noise is great enough, the particles will no longer move in a common 
-        direction and the average directed velocity of particles will be close to zero. 
-        At this point the system is said to have undergone a phase transition from 
-        a system with collective motion to a system with randomly moving particles.
-      </p>
-    </div>
-    <div class="data">
-      <h2>Data</h2>
-      <div class="row2">
-        <div class=figure>
-          <img src="img/Vicsek/png/v_av.png"></img>
-        </div>
-        <div class=figure>
-          <img src="img/Vicsek/png/v_ts.png"></img>
-        </div>
-      </div>
-    </div>
-    <div>
-      <h4>Reference</h4>
-      <p>[1] arXiv:cond-mat/0611743</p>
-    </div>
+  <div class="header">
+    <h1> </h1>
   </div>
-  <div class="sideR">
-    <h2>Simulation</h2>
-    <div class="simBox">
-      <div id="NosSlideContainer">
-        <p>Noise: <img src="img/Vicsek/math/eta.svg"></img> = <span id="Nos"></span></p>
-        <input type="range" min="0" max="0.8" value="0.2" step="0.001" class='slider' id="NosRange">
-      </div>
-      <div id="VelSlideContainer">
-        <p>Velocity: <img src="img/Vicsek/math/v.svg"></img> = <span id="Vel"></span></p>
-        <input type="range" min="2.0" max="4.5" value="3.0" step="0.01" class='slider' id="VelRange">
-      </div>
-      <script>
-        var NosSlider = document.getElementById("NosRange");
-        var NosOutput = document.getElementById("Nos");
-        NosOutput.innerHTML = NosSlider.value;
-        NosSlider.oninput = function() {NosOutput.innerHTML = this.value;}
 
-        var VelSlider = document.getElementById("VelRange");
-        var VelOutput = document.getElementById("Vel");
-        VelOutput.innerHTML = VelSlider.value;
-        VelSlider.oninput = function() {VelOutput.innerHTML = this.value;}
-      </script>
-      <p id="demo"></p>
-      <canvas width = "500" height = "500" id = "c"></canvas>
-      <p>Click the canvas to generate new particles!</p>
-      <script>
-        document.getElementById("c").onmousemove = function(event) {setMouseCoords(event)};
-        //==================Canvas=========================
-        var canvas = document.getElementById('c');
+  <div class="navbar">
+    <a href="index.html">Projects</a>
+    <a href="about.html">About Me</a>
+    <a href="doc/Resume_ARichards_May_2020.pdf" target="_blank">Resume</a>
+  </div>
 
-        canvas.addEventListener("mousedown", doMouseDown, false);
-        canvas.addEventListener("mouseup", doMouseUp, false);
-        var gl = canvas.getContext('webgl2');
-    
-        //==================Shaders========================
-        var vertexShaderSource = `#version 300 es
+  <div class="spacer1"> </div>
+  <div class="row">
+    <div class="sideL"></div>
+    <div class="main">
+      <div class="model">
+        <h2>The Model</h2>
+        <p>
+          From <a href="https://en.wikipedia.org/wiki/Vicsek_model" target="_blank"
+            style="color: rgb(57, 91, 158); text-decoration: none;">en.wikipedia.org/wiki/Vicsek_model</a>:
+        </p>
+        <div class="quote">
+          <p>
+            The Vicsek model is a mathematical model used to describe active matter.
+            One motivation of the study of active matter by physicists is the rich
+            phenomenology associated to this field. Collective motion and swarming
+            are among the most studied phenomena. Within the huge number of models
+            that have been developed to catch such behavior from a microscopic description,
+            the most famous is the model introduced by Tamás Vicsek et al. in 1995.[1]
+          </p>
+          <p>
+            Physicists have a great interest in this model as it is minimal and describes
+            a kind of universality. It consists in point-like self-propelled particles that
+            evolve at constant speed and align their velocity with their neighbours' one in
+            presence of noise. Such a model shows collective motion at high density of
+            particles or low noise on the alignment.
+          </p>
+        </div>
+        <p>
+          Each particle is described by a position, <img src="img/Vicsek/math/vec_r.svg"></img><sub><img
+              src="img/Vicsek/math/i.svg"></img></sub>, and a velocity, <img
+            src="img/Vicsek/math/vec_v.svg"></img><sub><img src="img/Vicsek/math/i.svg"></img></sub>.
+          Particles always travel at the same velocity, <img src="img/Vicsek/math/v.svg"></img> = |<img
+            src="img/Vicsek/math/vec_v.svg"></img><sub><img src="img/Vicsek/math/i.svg"></img></sub>|, so that the
+          velocity for each particle
+          may be written as <img src="img/Vicsek/math/vec_v.svg"></img><sub><img
+              src="img/Vicsek/math/i.svg"></img></sub> = <img src="img/Vicsek/math/v.svg"></img>(<img
+            src="img/Vicsek/math/cos_theta.svg"></img><sub><img src="img/Vicsek/math/i.svg"></img></sub>,
+          <img src="img/Vicsek/math/sin_theta.svg"></img><sub><img src="img/Vicsek/math/i.svg"></img></sub>), where <img
+            src="img/Vicsek/math/theta.svg"></img><sub><img src="img/Vicsek/math/i.svg"></img></sub> gives the direction
+          of motion for each particle and
+          <img src="img/Vicsek/math/v.svg"></img> is a constant.
+        </p>
+        <p>
+          After each time step, the direction of motion for each particle is updated to be the average of all of its
+          neighbours that fall within a cutoff radius, <img src="img/Vicsek/math/r.svg"></img>, plus a uniform random
+          noise variable,
+          <img src="img/Vicsek/math/eta.svg"></img><sub><img src="img/Vicsek/math/i.svg"></img></sub> <img
+            src="img/Vicsek/math/sim_U_eta.svg"></img>.
+        </p>
+        <p>
+          <img src="img/Vicsek/math/r_eq.svg"></img>, &nbsp; and<br />
+          <img src="img/Vicsek/math/theta_eq.svg"></img>
+        </p>
+        <p>
+          When the noise is great enough, the particles will no longer move in a common
+          direction and the average directed velocity of particles will be close to zero.
+          At this point the system is said to have undergone a phase transition from
+          a system with collective motion to a system with randomly moving particles.
+        </p>
+      </div>
+      <div class="data">
+        <h2>Data</h2>
+        <div class="row2">
+          <div class=figure>
+            <img src="img/Vicsek/png/v_av.png"></img>
+          </div>
+          <div class=figure>
+            <img src="img/Vicsek/png/v_ts.png"></img>
+          </div>
+        </div>
+      </div>
+      <div>
+        <h4>Reference</h4>
+        <p>[1] arXiv:cond-mat/0611743</p>
+      </div>
+    </div>
+    <div class="sideR">
+      <h2>Simulation</h2>
+      <div class="simBox">
+        <div id="NosSlideContainer">
+          <p>Noise: <img src="img/Vicsek/math/eta.svg"></img> = <span id="Nos"></span></p>
+          <input type="range" min="0" max="0.8" value="0.2" step="0.001" class='slider' id="NosRange">
+        </div>
+        <div id="VelSlideContainer">
+          <p>Velocity: <img src="img/Vicsek/math/v.svg"></img> = <span id="Vel"></span></p>
+          <input type="range" min="2.0" max="4.5" value="3.0" step="0.01" class='slider' id="VelRange">
+        </div>
+        <script>
+          var NosSlider = document.getElementById("NosRange");
+          var NosOutput = document.getElementById("Nos");
+          NosOutput.innerHTML = NosSlider.value;
+          NosSlider.oninput = function () { NosOutput.innerHTML = this.value; }
+
+          var VelSlider = document.getElementById("VelRange");
+          var VelOutput = document.getElementById("Vel");
+          VelOutput.innerHTML = VelSlider.value;
+          VelSlider.oninput = function () { VelOutput.innerHTML = this.value; }
+        </script>
+        <p id="demo"></p>
+        <canvas width="500" height="500" id="c"></canvas>
+        <p>Click the canvas to generate new particles!</p>
+        <script>
+          document.getElementById("c").onmousemove = function (event) { setMouseCoords(event) };
+          //==================Canvas=========================
+          var canvas = document.getElementById('c');
+
+          canvas.addEventListener("mousedown", doMouseDown, false);
+          canvas.addEventListener("mouseup", doMouseUp, false);
+          var gl = canvas.getContext('webgl2');
+
+          //==================Shaders========================
+          var vertexShaderSource = `#version 300 es
           in vec2 a_position;
           uniform vec2 u_resolution;	
           void main() {
@@ -128,8 +141,8 @@
             gl_Position = vec4(clipSpace, 0, 1);
           }
         `;
-        
-        var fragmentShaderSource = `#version 300 es
+
+          var fragmentShaderSource = `#version 300 es
           precision mediump float;
           uniform vec4 u_color;
           out vec4 outColor;     
@@ -137,22 +150,22 @@
             outColor = u_color;
           }
         `;
-    
-        function createShader(gl, type, source) {
-          var shader = gl.createShader(type);
-          gl.shaderSource(shader, source);
-          gl.compileShader(shader);
-          var success = gl.getShaderParameter(shader, gl.COMPILE_STATUS);
+
+          function createShader(gl, type, source) {
+            var shader = gl.createShader(type);
+            gl.shaderSource(shader, source);
+            gl.compileShader(shader);
+            var success = gl.getShaderParameter(shader, gl.COMPILE_STATUS);
             if (success) {
               return shader;
-            }     
-          gl.deleteShader(shader);
-        }
-    
-        var vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
-        var fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
-    
-        function createProgram(gl, vertexShader, fragmentShader) {
+            }
+            gl.deleteShader(shader);
+          }
+
+          var vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
+          var fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
+
+          function createProgram(gl, vertexShader, fragmentShader) {
             var program = gl.createProgram();
             gl.attachShader(program, vertexShader);
             gl.attachShader(program, fragmentShader);
@@ -163,23 +176,23 @@
             }
             gl.deleteProgram(program);
           }
-    
-        var program = createProgram(gl, vertexShader, fragmentShader);
-        
-        //==================Initialization=================
-        var positionAttributeLocation = gl.getAttribLocation(program, 'a_position');
-        var resolutionUniformLocation = gl.getUniformLocation(program, "u_resolution");
-        var colorLocation = gl.getUniformLocation(program, "u_color");
-    
-        var positionBuffer = gl.createBuffer();
-        gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
-        function setRectangle(gl, x, y, width, height) {
-          var x1 = x;
-          var x2 = x + width;
-          var y1 = y;
-          var y2 = y + height;
-    
-          var positions = [
+
+          var program = createProgram(gl, vertexShader, fragmentShader);
+
+          //==================Initialization=================
+          var positionAttributeLocation = gl.getAttribLocation(program, 'a_position');
+          var resolutionUniformLocation = gl.getUniformLocation(program, "u_resolution");
+          var colorLocation = gl.getUniformLocation(program, "u_color");
+
+          var positionBuffer = gl.createBuffer();
+          gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+          function setRectangle(gl, x, y, width, height) {
+            var x1 = x;
+            var x2 = x + width;
+            var y1 = y;
+            var y2 = y + height;
+
+            var positions = [
               x1, y1,
               x2, y1,
               x1, y2,
@@ -187,136 +200,133 @@
               x2, y1,
               x2, y2
             ];
-    
-          gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.DYNAMIC_DRAW);
-        }
-    
-        var vao = gl.createVertexArray();
-        gl.bindVertexArray(vao);
-        gl.enableVertexAttribArray(positionAttributeLocation);
-    
-        var size = 2;          
-        var type = gl.FLOAT;   
-        var normalize = false; 
-        var stride = 0;        
-        var offset = 0;        
-        gl.vertexAttribPointer(positionAttributeLocation, size, type, normalize, stride, offset);
-        
-        var L = 500;
-    
-        //==================Functions======================
-    
-        function pause(milliseconds) {
-          const date = Date.now();
-          let currentDate = null;
-          do { currentDate = Date.now();} 
-          while (currentDate - date < milliseconds)
-        }
-    
-        function square(x, y) {
-          var VelVal = VelSlider.value;
-          var Vel = parseFloat(VelVal);
-          this.v = Vel;
-          this.theta = 0.5;
-          this.x = x;
-          this.y = y;
-    
-          this.newPos = function(theta) {
-            this.theta = theta;
-            this.x += this.v*Math.cos(this.theta);
-            this.y += this.v*Math.sin(this.theta);
-            this.x = (this.x + L)%L;
-            this.y = (this.y + L)%L;
-            setRectangle(gl, this.x, this.y, 6, 6);
-            gl.uniform4f(colorLocation, 1, 1, 1, 1);
-            gl.drawArrays(gl.TRIANGLES, 0, 6);
-          }
-        }
-    
-        var Br = [];
-        var BN = 400;
-        for(var i=0; i< BN; ++i)
-        {
-          var xi = Math.floor(Math.random()*L);
-          var yi = Math.floor(Math.random()*L);
-          Br.push(new square(xi,yi));
-        }
-    
-        //==================Build Scene====================
-        gl.useProgram(program);
-        gl.bindVertexArray(vao);
-        
-        gl.clearColor(0.2, 0.2, 0.2, 0.9);
-        
-        var isMousePressed = false;
-        var mouse_x;
-        var mouse_y;
 
-        function render(){
-          gl.clearDepth(1.0);
-          gl.uniform2f(resolutionUniformLocation, gl.canvas.width, gl.canvas.height);
-          gl.viewport(0.0, 0.0, canvas.width, canvas.height);
-          gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
-    
-          var NosVal = NosSlider.value;
-          var Nos = parseFloat(NosVal);
-    
-          for(var i=0; i< Br.length; ++i)
-          {
-            var nbrx_av = 0;
-            var nbry_av = 0;
-            for(var j=0; j<Br.length; ++j){
-              var Brijx = Br[i].x - Br[j].x;
-              var Brijy = Br[i].y - Br[j].y;
-              if( (Brijx*Brijx + Brijy*Brijy) < 25*25 )
-              {
-                nbrx_av += Math.cos(Br[j].theta);
-                nbry_av += Math.sin(Br[j].theta);
-              }
-            }
-            var newTheta = Math.atan2(nbry_av,nbrx_av);
-            Br[i].newPos((newTheta + Nos*(2*Math.random()-1))%(2*Math.PI));
+            gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.DYNAMIC_DRAW);
+          }
+
+          var vao = gl.createVertexArray();
+          gl.bindVertexArray(vao);
+          gl.enableVertexAttribArray(positionAttributeLocation);
+
+          var size = 2;
+          var type = gl.FLOAT;
+          var normalize = false;
+          var stride = 0;
+          var offset = 0;
+          gl.vertexAttribPointer(positionAttributeLocation, size, type, normalize, stride, offset);
+
+          var L = 500;
+
+          //==================Functions======================
+
+          function pause(milliseconds) {
+            const date = Date.now();
+            let currentDate = null;
+            do { currentDate = Date.now(); }
+            while (currentDate - date < milliseconds)
+          }
+
+          function square(x, y) {
             var VelVal = VelSlider.value;
             var Vel = parseFloat(VelVal);
-            Br[i].v=Vel;
+            this.v = Vel;
+            this.theta = 0.5;
+            this.x = x;
+            this.y = y;
+
+            this.newPos = function (theta) {
+              this.theta = theta;
+              this.x += this.v * Math.cos(this.theta);
+              this.y += this.v * Math.sin(this.theta);
+              this.x = (this.x + L) % L;
+              this.y = (this.y + L) % L;
+              setRectangle(gl, this.x, this.y, 6, 6);
+              gl.uniform4f(colorLocation, 1, 1, 1, 1);
+              gl.drawArrays(gl.TRIANGLES, 0, 6);
+            }
           }
 
-          if(isMousePressed)
-          {
-            Br.shift();
-            Br.push(new square(mouse_x,mouse_y));
+          var Br = [];
+          var BN = 400;
+          for (var i = 0; i < BN; ++i) {
+            var xi = Math.floor(Math.random() * L);
+            var yi = Math.floor(Math.random() * L);
+            Br.push(new square(xi, yi));
           }
 
-          pause(1);
-          requestAnimationFrame(render);
-        }
-        render();
+          //==================Build Scene====================
+          gl.useProgram(program);
+          gl.bindVertexArray(vao);
 
-        function doMouseDown(event) {
-          isMousePressed = true;
-        }
+          gl.clearColor(0.2, 0.2, 0.2, 0.9);
 
-        function doMouseUp() {
-          isMousePressed = false;
-        }
+          var isMousePressed = false;
+          var mouse_x;
+          var mouse_y;
 
-        function setMouseCoords(e) {
-          var rect = canvas.getBoundingClientRect();
-          mouse_x = event.clientX - rect.left;
-          mouse_y = rect.bottom - event.clientY;
-        }
+          function render() {
+            gl.clearDepth(1.0);
+            gl.uniform2f(resolutionUniformLocation, gl.canvas.width, gl.canvas.height);
+            gl.viewport(0.0, 0.0, canvas.width, canvas.height);
+            gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
-      </script>
+            var NosVal = NosSlider.value;
+            var Nos = parseFloat(NosVal);
+
+            for (var i = 0; i < Br.length; ++i) {
+              var nbrx_av = 0;
+              var nbry_av = 0;
+              for (var j = 0; j < Br.length; ++j) {
+                var Brijx = Br[i].x - Br[j].x;
+                var Brijy = Br[i].y - Br[j].y;
+                if ((Brijx * Brijx + Brijy * Brijy) < 25 * 25) {
+                  nbrx_av += Math.cos(Br[j].theta);
+                  nbry_av += Math.sin(Br[j].theta);
+                }
+              }
+              var newTheta = Math.atan2(nbry_av, nbrx_av);
+              Br[i].newPos((newTheta + Nos * (2 * Math.random() - 1)) % (2 * Math.PI));
+              var VelVal = VelSlider.value;
+              var Vel = parseFloat(VelVal);
+              Br[i].v = Vel;
+            }
+
+            if (isMousePressed) {
+              Br.shift();
+              Br.push(new square(mouse_x, mouse_y));
+            }
+
+            pause(1);
+            requestAnimationFrame(render);
+          }
+          render();
+
+          function doMouseDown(event) {
+            isMousePressed = true;
+          }
+
+          function doMouseUp() {
+            isMousePressed = false;
+          }
+
+          function setMouseCoords(e) {
+            var rect = canvas.getBoundingClientRect();
+            mouse_x = event.clientX - rect.left;
+            mouse_y = rect.bottom - event.clientY;
+          }
+
+        </script>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="spacer1"> </div>
-<div class="spacer2"> </div>
+  <div class="spacer1"> </div>
+  <div class="spacer2"> </div>
 
-<div class="footer">
-  <h1> </h1>
-</div>
+  <div class="footer">
+    <h1> </h1>
+  </div>
 
 </body>
+
 </html>
