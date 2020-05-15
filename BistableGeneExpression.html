@@ -23,6 +23,12 @@
 <div class="row">
   <div class="sideL"></div>
   <div class="main">
+    <p>
+      This is a quick demo of the stochastic gene expression model that I studied during the winter of 2019 
+      as part of my research assistantship. I helped our group by implementing the Gillespie algorithm for this model, 
+      generating lots of data, and performing some data analysis. For more information, please see our recently 
+      published conference paper [1].
+    </p>
     <div class="model">  
       <h2>The Model</h2>
       <div class="quote">
@@ -49,7 +55,6 @@
           <img src="img/BistableGeneExpression/png/Logist_Dip.png" style="width: 460px; height: auto;"></img>
         </div>
       </div>
-      <a href="./doc/BistableGeneExpression/Autocorrelations.pdf" target="_blank" style="color: #353535; text-decoration: none; border-style: solid; border-color: #353535; padding: 3px;"><b>view autocorrelation function</b></a>
     </div>
     <div>
       <h4>Reference</h4>
@@ -70,6 +75,9 @@
         uSlider.oninput = function() {uOutput.innerHTML = this.value;}
       </script>
       <div id="graph" style="width:500px;height:500px;"></div>
+      <div style="padding-top:15px;">
+        <a href="./doc/BistableGeneExpression/Autocorrelations.pdf" target="_blank" style="color: #424242; text-decoration: none; border-style: solid; border-color: #424242; padding: 3px;"><b>view autocorrelation function</b></a>
+      </div>
       <script>
         var N = 200;
         var W=90.0;
