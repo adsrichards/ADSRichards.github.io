@@ -28,6 +28,13 @@
       scene.add(light);
     }
 
+    {
+      const color = 0x000000;
+      const near = 10;
+      const far = 55;
+      scene.fog = new THREE.Fog(color, near, far);
+    }
+
     var renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
@@ -35,11 +42,11 @@
     var geometry = new THREE.BoxGeometry();
     var material = new THREE.MeshPhongMaterial({ color: 0x3f80e8 });
 
-    var Lz = 50.0;
+    var Lz = 55.0;
     var Lx = 25.0;
     var Ly = 20.0;
 
-    var cN = 25;
+    var cN = 30;
     var cube = [];
     var cubeRotation = [];
 
@@ -55,7 +62,7 @@
 
     }
 
-    camera.position.z = 50.0;
+    camera.position.z = Lz;
 
     var animate = function () {
       requestAnimationFrame(animate);
