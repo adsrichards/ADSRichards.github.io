@@ -20,12 +20,20 @@
     var scene = new THREE.Scene();
     var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 
+    {
+      const color = 0xFFFFFF;
+      const intensity = 1;
+      const light = new THREE.DirectionalLight(color, intensity);
+      light.position.set(30, 30, 50);
+      scene.add(light);
+    }
+
     var renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
 
     var geometry = new THREE.BoxGeometry();
-    var material = new THREE.MeshBasicMaterial({ color: 0x3f80e8 });
+    var material = new THREE.MeshPhongMaterial({ color: 0x3f80e8 });
 
     var Lz = 50.0;
     var Lx = 25.0;
