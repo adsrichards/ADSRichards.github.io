@@ -108,13 +108,13 @@
           <input type="range" min="2.0" max="4.5" value="3.0" step="0.01" class='slider' id="VelRange">
         </div>
         <script>
-          var NosSlider = document.getElementById("NosRange");
-          var NosOutput = document.getElementById("Nos");
+          const NosSlider = document.getElementById("NosRange");
+          const NosOutput = document.getElementById("Nos");
           NosOutput.innerHTML = NosSlider.value;
           NosSlider.oninput = function () { NosOutput.innerHTML = this.value; }
 
-          var VelSlider = document.getElementById("VelRange");
-          var VelOutput = document.getElementById("Vel");
+          const VelSlider = document.getElementById("VelRange");
+          const VelOutput = document.getElementById("Vel");
           VelOutput.innerHTML = VelSlider.value;
           VelSlider.oninput = function () { VelOutput.innerHTML = this.value; }
         </script>
@@ -124,14 +124,14 @@
         <script>
           document.getElementById("c").onmousemove = function (event) { setMouseCoords(event) };
           //==================Canvas=========================
-          var canvas = document.getElementById('c');
+          const canvas = document.getElementById('c');
 
           canvas.addEventListener("mousedown", doMouseDown, false);
           canvas.addEventListener("mouseup", doMouseUp, false);
-          var gl = canvas.getContext('webgl2');
+          const gl = canvas.getContext('webgl2');
 
           //==================Shaders========================
-          var vertexShaderSource = `#version 300 es
+          const vertexShaderSource = `#version 300 es
           in vec2 a_position;
           uniform vec2 u_resolution;	
           void main() {
@@ -142,7 +142,7 @@
           }
         `;
 
-          var fragmentShaderSource = `#version 300 es
+          const fragmentShaderSource = `#version 300 es
           precision mediump float;
           uniform vec4 u_color;
           out vec4 outColor;     
@@ -152,25 +152,25 @@
         `;
 
           function createShader(gl, type, source) {
-            var shader = gl.createShader(type);
+            const shader = gl.createShader(type);
             gl.shaderSource(shader, source);
             gl.compileShader(shader);
-            var success = gl.getShaderParameter(shader, gl.COMPILE_STATUS);
+            const success = gl.getShaderParameter(shader, gl.COMPILE_STATUS);
             if (success) {
               return shader;
             }
             gl.deleteShader(shader);
           }
 
-          var vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
-          var fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
+          const vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
+          const fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
 
           function createProgram(gl, vertexShader, fragmentShader) {
-            var program = gl.createProgram();
+            const program = gl.createProgram();
             gl.attachShader(program, vertexShader);
             gl.attachShader(program, fragmentShader);
             gl.linkProgram(program);
-            var success = gl.getProgramParameter(program, gl.LINK_STATUS);
+            const success = gl.getProgramParameter(program, gl.LINK_STATUS);
             if (success) {
               return program;
             }
@@ -180,17 +180,17 @@
           var program = createProgram(gl, vertexShader, fragmentShader);
 
           //==================Initialization=================
-          var positionAttributeLocation = gl.getAttribLocation(program, 'a_position');
-          var resolutionUniformLocation = gl.getUniformLocation(program, "u_resolution");
-          var colorLocation = gl.getUniformLocation(program, "u_color");
+          const positionAttributeLocation = gl.getAttribLocation(program, 'a_position');
+          const resolutionUniformLocation = gl.getUniformLocation(program, "u_resolution");
+          const colorLocation = gl.getUniformLocation(program, "u_color");
 
-          var positionBuffer = gl.createBuffer();
+          const positionBuffer = gl.createBuffer();
           gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
           function setRectangle(gl, x, y, width, height) {
-            var x1 = x;
-            var x2 = x + width;
-            var y1 = y;
-            var y2 = y + height;
+            const x1 = x;
+            const x2 = x + width;
+            const y1 = y;
+            const y2 = y + height;
 
             var positions = [
               x1, y1,
@@ -204,15 +204,15 @@
             gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.DYNAMIC_DRAW);
           }
 
-          var vao = gl.createVertexArray();
+          const vao = gl.createVertexArray();
           gl.bindVertexArray(vao);
           gl.enableVertexAttribArray(positionAttributeLocation);
 
-          var size = 2;
-          var type = gl.FLOAT;
-          var normalize = false;
-          var stride = 0;
-          var offset = 0;
+          const size = 2;
+          const type = gl.FLOAT;
+          const normalize = false;
+          const stride = 0;
+          const offset = 0;
           gl.vertexAttribPointer(positionAttributeLocation, size, type, normalize, stride, offset);
 
           var L = 500;
@@ -227,8 +227,8 @@
           }
 
           function square(x, y) {
-            var VelVal = VelSlider.value;
-            var Vel = parseFloat(VelVal);
+            const VelVal = VelSlider.value;
+            const Vel = parseFloat(VelVal);
             this.v = Vel;
             this.theta = 0.5;
             this.x = x;
@@ -246,11 +246,11 @@
             }
           }
 
-          var Br = [];
-          var BN = 400;
-          for (var i = 0; i < BN; ++i) {
-            var xi = Math.floor(Math.random() * L);
-            var yi = Math.floor(Math.random() * L);
+          let Br = [];
+          const BN = 400;
+          for (let i = 0; i < BN; i++) {
+            const xi = Math.floor(Math.random() * L);
+            const yi = Math.floor(Math.random() * L);
             Br.push(new square(xi, yi));
           }
 
@@ -260,9 +260,9 @@
 
           gl.clearColor(0.2, 0.2, 0.2, 0.9);
 
-          var isMousePressed = false;
-          var mouse_x;
-          var mouse_y;
+          let isMousePressed = false;
+          let mouse_x;
+          let mouse_y;
 
           function render() {
             gl.clearDepth(1.0);
@@ -270,25 +270,24 @@
             gl.viewport(0.0, 0.0, canvas.width, canvas.height);
             gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
-            var NosVal = NosSlider.value;
-            var Nos = parseFloat(NosVal);
-
-            for (var i = 0; i < Br.length; ++i) {
-              var nbrx_av = 0;
-              var nbry_av = 0;
-              for (var j = 0; j < Br.length; ++j) {
-                var Brijx = Br[i].x - Br[j].x;
-                var Brijy = Br[i].y - Br[j].y;
+            for (let i = 0; i < Br.length; ++i) {
+              let nbrx_av = 0;
+              let nbry_av = 0;
+              for (let j = 0; j < Br.length; ++j) {
+                const Brijx = Br[i].x - Br[j].x;
+                const Brijy = Br[i].y - Br[j].y;
                 if ((Brijx * Brijx + Brijy * Brijy) < 25 * 25) {
                   nbrx_av += Math.cos(Br[j].theta);
                   nbry_av += Math.sin(Br[j].theta);
                 }
               }
-              var newTheta = Math.atan2(nbry_av, nbrx_av);
-              Br[i].newPos((newTheta + Nos * (2 * Math.random() - 1)) % (2 * Math.PI));
-              var VelVal = VelSlider.value;
-              var Vel = parseFloat(VelVal);
+              const VelVal = VelSlider.value;
+              const Vel = parseFloat(VelVal);
               Br[i].v = Vel;
+              const NosVal = NosSlider.value;
+              const Nos = parseFloat(NosVal);
+              const newTheta = Math.atan2(nbry_av, nbrx_av);
+              Br[i].newPos((newTheta + Nos * (2 * Math.random() - 1)) % (2 * Math.PI));
             }
 
             if (isMousePressed) {
@@ -309,8 +308,8 @@
             isMousePressed = false;
           }
 
-          function setMouseCoords(e) {
-            var rect = canvas.getBoundingClientRect();
+          function setMouseCoords(event) {
+            const rect = canvas.getBoundingClientRect();
             mouse_x = event.clientX - rect.left;
             mouse_y = rect.bottom - event.clientY;
           }
