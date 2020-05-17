@@ -223,15 +223,16 @@
             while (currentDate - date < milliseconds)
           }
 
-          function square(x, y) {
-            const VelVal = VelSlider.value;
-            const Vel = parseFloat(VelVal);
-            this.v = Vel;
-            this.theta = 0.5;
-            this.x = x;
-            this.y = y;
-
-            this.newPos = function (theta) {
+          class Square {
+            constructor(x, y) {
+              const VelVal = VelSlider.value;
+              const Vel = parseFloat(VelVal);
+              this.v = Vel;
+              this.theta = 0.5;
+              this.x = x;
+              this.y = y;
+            }
+            newPos(theta) {
               this.theta = theta;
               this.x += this.v * Math.cos(this.theta);
               this.y += this.v * Math.sin(this.theta);
@@ -248,7 +249,7 @@
           for (let i = 0; i < sqrN; i++) {
             const xi = Math.floor(Math.random() * L);
             const yi = Math.floor(Math.random() * L);
-            squares.push(new square(xi, yi));
+            squares.push(new Square(xi, yi));
           }
 
           gl.useProgram(program);
@@ -288,7 +289,7 @@
 
             if (isMousePressed) {
               squares.shift();
-              squares.push(new square(mouse_x, mouse_y));
+              squares.push(new Square(mouse_x, mouse_y));
             }
 
             pause(1);
