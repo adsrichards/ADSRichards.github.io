@@ -99,24 +99,24 @@
     <div class="sideR">
       <h2>Simulation</h2>
       <div class="simBox">
-        <div id="NosSlideContainer">
-          <p>Noise: <img src="img/Vicsek/math/eta.svg"></img> = <span id="Nos"></span></p>
-          <input type="range" min="0" max="0.8" value="0.2" step="0.001" class='slider' id="NosRange">
+        <div>
+          <p>Noise: <img src="img/Vicsek/math/eta.svg"></img> = <span id="nos"></span></p>
+          <input type="range" min="0" max="0.8" value="0.2" step="0.001" class='slider' id="nos-range">
         </div>
-        <div id="VelSlideContainer">
-          <p>Velocity: <img src="img/Vicsek/math/v.svg"></img> = <span id="Vel"></span></p>
-          <input type="range" min="2.0" max="4.5" value="3.0" step="0.01" class='slider' id="VelRange">
+        <div>
+          <p>Velocity: <img src="img/Vicsek/math/v.svg"></img> = <span id="vel"></span></p>
+          <input type="range" min="2.0" max="4.5" value="3.0" step="0.01" class='slider' id="vel-range">
         </div>
         <script>
-          const NosSlider = document.getElementById("NosRange");
-          const NosOutput = document.getElementById("Nos");
-          NosOutput.innerHTML = NosSlider.value;
-          NosSlider.oninput = function () { NosOutput.innerHTML = this.value; }
+          const nosSlider = document.getElementById("nos-range");
+          const nosOutput = document.getElementById("nos");
+          nosOutput.innerHTML = nosSlider.value;
+          nosSlider.oninput = function () { nosOutput.innerHTML = this.value; }
 
-          const VelSlider = document.getElementById("VelRange");
-          const VelOutput = document.getElementById("Vel");
-          VelOutput.innerHTML = VelSlider.value;
-          VelSlider.oninput = function () { VelOutput.innerHTML = this.value; }
+          const velSlider = document.getElementById("vel-range");
+          const velOutput = document.getElementById("vel");
+          velOutput.innerHTML = velSlider.value;
+          velSlider.oninput = function () { velOutput.innerHTML = this.value; }
         </script>
         <p id="demo"></p>
         <canvas width="500" height="500" id="c"></canvas>
@@ -225,9 +225,7 @@
 
           class Square {
             constructor(x, y) {
-              const VelVal = VelSlider.value;
-              const Vel = parseFloat(VelVal);
-              this.v = Vel;
+              this.v = parseFloat(velSlider.value);
               this.theta = 0.5;
               this.x = x;
               this.y = y;
@@ -278,13 +276,10 @@
                   nbry_av += Math.sin(sqr_j.theta);
                 }
               }
-              const VelVal = VelSlider.value;
-              const Vel = parseFloat(VelVal);
-              sqr_i.v = Vel;
-              const NosVal = NosSlider.value;
-              const Nos = parseFloat(NosVal);
+              sqr_i.v = parseFloat(velSlider.value);
+              const nos = parseFloat(nosSlider.value);
               const newTheta = Math.atan2(nbry_av, nbrx_av);
-              sqr_i.newPos((newTheta + Nos * (2 * Math.random() - 1)) % (2 * Math.PI));
+              sqr_i.newPos((newTheta + nos * (2 * Math.random() - 1)) % (2 * Math.PI));
             }
 
             if (isMousePressed) {
