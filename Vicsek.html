@@ -179,7 +179,6 @@
 
           var program = createProgram(gl, vertexShader, fragmentShader);
 
-          //==================Initialization=================
           const positionAttributeLocation = gl.getAttribLocation(program, 'a_position');
           const resolutionUniformLocation = gl.getUniformLocation(program, "u_resolution");
           const colorLocation = gl.getUniformLocation(program, "u_color");
@@ -215,9 +214,7 @@
           const offset = 0;
           gl.vertexAttribPointer(positionAttributeLocation, size, type, normalize, stride, offset);
 
-          var L = 500;
-
-          //==================Functions======================
+          const L = 500;
 
           function pause(milliseconds) {
             const date = Date.now();
@@ -246,15 +243,14 @@
             }
           }
 
-          let Br = [];
-          const BN = 400;
-          for (let i = 0; i < BN; i++) {
+          let squares = [];
+          const sqrN = 400;
+          for (let i = 0; i < sqrN; i++) {
             const xi = Math.floor(Math.random() * L);
             const yi = Math.floor(Math.random() * L);
-            Br.push(new square(xi, yi));
+            squares.push(new square(xi, yi));
           }
 
-          //==================Build Scene====================
           gl.useProgram(program);
           gl.bindVertexArray(vao);
 
@@ -270,29 +266,29 @@
             gl.viewport(0.0, 0.0, canvas.width, canvas.height);
             gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
 
-            for (let i = 0; i < Br.length; ++i) {
+            for (const sqr_i of squares) {
               let nbrx_av = 0;
               let nbry_av = 0;
-              for (let j = 0; j < Br.length; ++j) {
-                const Brijx = Br[i].x - Br[j].x;
-                const Brijy = Br[i].y - Br[j].y;
-                if ((Brijx * Brijx + Brijy * Brijy) < 25 * 25) {
-                  nbrx_av += Math.cos(Br[j].theta);
-                  nbry_av += Math.sin(Br[j].theta);
+              for (const sqr_j of squares) {
+                const sqr_ijx = sqr_i.x - sqr_j.x;
+                const sqr_ijy = sqr_i.y - sqr_j.y;
+                if ((sqr_ijx * sqr_ijx + sqr_ijy * sqr_ijy) < 25 * 25) {
+                  nbrx_av += Math.cos(sqr_j.theta);
+                  nbry_av += Math.sin(sqr_j.theta);
                 }
               }
               const VelVal = VelSlider.value;
               const Vel = parseFloat(VelVal);
-              Br[i].v = Vel;
+              sqr_i.v = Vel;
               const NosVal = NosSlider.value;
               const Nos = parseFloat(NosVal);
               const newTheta = Math.atan2(nbry_av, nbrx_av);
-              Br[i].newPos((newTheta + Nos * (2 * Math.random() - 1)) % (2 * Math.PI));
+              sqr_i.newPos((newTheta + Nos * (2 * Math.random() - 1)) % (2 * Math.PI));
             }
 
             if (isMousePressed) {
-              Br.shift();
-              Br.push(new square(mouse_x, mouse_y));
+              squares.shift();
+              squares.push(new square(mouse_x, mouse_y));
             }
 
             pause(1);
