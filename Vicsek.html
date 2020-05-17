@@ -177,7 +177,7 @@
             gl.deleteProgram(program);
           }
 
-          var program = createProgram(gl, vertexShader, fragmentShader);
+          const program = createProgram(gl, vertexShader, fragmentShader);
 
           const positionAttributeLocation = gl.getAttribLocation(program, 'a_position');
           const resolutionUniformLocation = gl.getUniformLocation(program, "u_resolution");
@@ -191,7 +191,7 @@
             const y1 = y;
             const y2 = y + height;
 
-            var positions = [
+            const positions = [
               x1, y1,
               x2, y1,
               x1, y2,
