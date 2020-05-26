@@ -2,101 +2,109 @@
 <html>
 
 <head>
+  <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet">
   <title> Addison Richards - Projects </title>
   <link rel="stylesheet" type="text/css" href="css/index.css">
-  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 
 <body>
-
-  <div class="header">
-    <h1></h1>
-  </div>
-
-  <div class="navbar">
-    <a href="index.html" class="button">Projects</a>
-    <a href="about.html">About Me</a>
-    <a href="doc/Resume_ARichards_May_2020.pdf" target="_blank">Resume</a>
-  </div>
-
-  <div class="center">
-    <div class="thumb">
-      <a target="_self" href="Ising.html">
-        <img src="img/Ising.png" />
-        <p><b>Ising Model Simulation</b></p>
-      </a>
-      <a target="_self" href="Vicsek.html">
-        <img src="img/Vicsek.png" />
-        <p><b>Vicsek Model Simulation</b></p>
-      </a>
-      <a target="_self" href="BistableGeneExpression.html">
-        <img src="img/BistableGeneExpression.png"
-          style="width: 256px; height: 256px; border-style: solid; border-color: #474747;" />
-        <p><b>Bistable Gene Expression</b></p>
-      </a>
-      <a target="_self" href="#">
-        <img src="img/Covid19.png" />
-        <p><b>COVID-19 Data</b></p>
-      </a>
+  <script src="https://threejs.org/build/three.min.js"></script>
+  <script src="js/FlyingCubes.js"></script>
+  <div>
+    <div style="top:5%; left: 5%; color:#d6d6d6; position: absolute; 
+                font-size: 24pt; font-family: 'Audiowide', cursive;"><b>ADSR</b>
     </div>
-    <div class="thumb">
-      <a target="_self" href="galaga.html">
-        <img src="img/galaga.png" />
-        <p><b>Self-Learning Galaga</b></p>
-      </a>
-      <a target="_self" href="FlyingCubes.html">
-        <img src="img/FlyingCubes.png" style="width: 256px; height: 256px;" />
-        <p><b>Flying Simulation</b></p>
-      </a>
+    <div style="width:100%; top:35%; text-align: center; color:#d6d6d6; 
+                position: absolute; font-size: 36pt; font-family: Arial;">
+      <b style="letter-spacing: 2px;">Addison Richards</b> <br>
+      <p style="font-size: 18pt; letter-spacing: 1px;"><b>Software Developer</b></p>
+      <div style="margin: auto; text-align: center; width: 150px; height: 50px; 
+                  background-color: #d6d6d6; font-size: 10pt; color: black; border-radius: 25px;">
+        <p style="padding-top: 17.5px; font-weight: 800;">SEE PROJECTS</p>
+      </div>
     </div>
-    <!--
-  <p> </p>
-  <p> </p>
-  <div class = "data">
-    <h3>Artificial Intelligence</h3>
-    <div class="thumb">
-      <a target="_self" href="galaga.html">
-        <img src="img/galaga.png"/>
-        <p>Self-Learning Galaga</p>
-      </a>
+    <div style="bottom:5%; right: 5%; color:#d6d6d6; position: absolute; 
+                font-size: 20pt; font-family: Arial;">
+      <a href="https://github.com/adsrichards" target="_blank"><img title="GitHub" src="img/logos/png/GitHub-Mark-Light-64px.png" style="width:36px; height:auto; margin-right: 1px;"></img></a>
+      <a href="https://codepen.io/adsrichards" target="_blank"><img title="CodePen" src="img/logos/png/CodePen2.png" style="width:36px; height:auto; margin-right: 1px;"></img></a>
+      <a href="https://www.linkedin.com/in/adsrichards/" target="_blank"><img title="LinkedIn" src="img/logos/png/LinkedIn.png" style="width:36px; height:auto;"></img></a>
+      <img title="Resume" src="img/logos/png/Resume.png" style="width:36px; height:auto;"></img>
     </div>
-  </div>
-  <p> </p>
-  <div class = "data">
-    <h3>Graphics</h3>
-    <div class="thumb">
-    </div>
-  </div>
-  <div class = "data">
-    <h3>Graphics</h3>
-    <div class="thumb">
-      <a target="_self" href="#">
-        <img src="#"/>
-        <p>Demo Room</p>
-        </a>
-    </div>
-  </div>
-  <div class = "data">
-    <h3>Mathematics</h3>
-    <div class="thumb">
-      <a target="_self" href="#">
-        <img src="#"/>
-        <p>Fourier Analysis</p>
-        </a>
-    </div>
-    <div class="thumb">
-      <a target="_self" href="#">
-        <img src="#"/>
-        <p>Quaternions</p>
-      </a>
-    </div>
-  </div>
-  -->
   </div>
 
   <div class="spacer2"></div>
-  <div class="footer"></div>
+  <div style="display: flex; flex-wrap: wrap; margin: auto">
+    <div class="center" style="left: 0; width:50%; box-shadow: 0px 8px 16px 4px rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+                  margin: 50px; padding: 20px 50px 20px 50px">
+      <h2 style="text-align: center; color: #3e67aa">ABOUT ME</h2>
+      <p>
+        I recently graduated from the University of Waterloo with a bachelor's degree in mathematical physics. My
+        electives were mainly
+        in computer science and mathematics and I have always enjoyed solving problems with code. When I wasn't
+        studying, I contributed to
+        various research projects by implementing simulation algorithms, usually taking advantage of the Compute Canada
+        high-performance
+        CPU clusters.
+      </p>
+      <p>
+        I love working hard and learning new things. My favourite part about full-stack software development is the
+        constantly evolving set of
+        technologies to keep up with. Currently, I am seeking full-time opportunities in full-stack or front-end
+        software development in the
+        greater Toronto area.
+      </p>
+    </div>
+    <div class="center"
+      style="right: 0; width:30%; box-shadow: 0px 8px 16px 4px rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19); margin: 50px; padding: 20px 50px 20px 50px">
+      <h2 style="text-align: center; color: #3e67aa">MY FOCUS</h2>
+      <div>
+        <img title="JavaScript" width="64"
+          src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png">
+        <img title="React" width="128" src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg">
+        <img title="Node.js" width="96" src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg">
+      </div>
+    </div>
+  </div>
+
+  <div class="spacer2"></div>
+
+  <div
+    style="width:80%; margin-top: 50px; margin-bottom: 50px; margin-left: auto; margin-right: auto; padding: 0px 50px 20px 50px">
+    <h2 style="text-align: center; color: #3e67aa">PROJECT PORTFOLIO</h2><br>
+    <div class="thumb">
+      <a target="_self" href="Vicsek.html">
+        <img src="img/Vicsek.png"
+          style="width: 256px; height: 256px; box-shadow: 0px 24px 16px 16px rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" />
+        <p><b>Particle Swarming</b></p>
+      </a>
+      <a target="_self" href="galaga.html">
+        <img src="img/galaga.png"
+          style="width: 256px; height: 256px; box-shadow: 0px 24px 16px 16px rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" />
+        <p><b>Self-Learning Galaga</b></p>
+      </a>
+      <a target="_self" href="FlyingCubes.html">
+        <img src="img/FlyingCubes.png"
+          style="width: 256px; height: 256px; box-shadow: 0px 24px 16px 16px rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" />
+        <p><b>Three.js Flying Cubes</b></p>
+      </a>
+    </div>
+  </div>
+
+  <div class="spacer2"></div>
+  <h2 style="text-align: center; color: #3e67aa">Contact Me</h2>
+
+  <div class="footer">
+    <div class="spacer2"></div>
+    <p style="font-size: 24pt; font-family: 'Audiowide', cursive; padding: 0; margin-bottom: 10px;">ADSR</p>
+    <div style="padding: 0;">
+      <img src="img/logos/png/GitHub-Mark-Light-64px.png" style="width:36px; height:auto; margin-left: 1px; margin-right: 1px;"></img>
+      <img src="img/logos/png/CodePen2.png" style="width:36px; height:auto; margin-left: 1px; margin-right: 1px;"></img>
+      <img src="img/logos/png/LinkedIn.png" style="width:36px; height:auto; margin-left: 1px; margin-right: 1px;"></img>
+      <img src="img/logos/png/Resume.png" style="width:36px; height:auto; margin-left: 1px; margin-right: 1px;"></img>
+    </div>
+  </div>
 
 </body>
 

@@ -12,13 +12,16 @@
       display: block;
     }
   </style>
+  <link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
 
 <body>
-  <script src="js/three.js"></script>
+  <script src="https://threejs.org/build/three.min.js"></script>
   <script>
     var scene = new THREE.Scene();
     var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+
+    window.addEventListener( 'resize', onWindowResize, false );
 
     {
       const color = 0xFFFFFF;
@@ -38,6 +41,15 @@
     var renderer = new THREE.WebGLRenderer();
     renderer.setSize(window.innerWidth, window.innerHeight);
     document.body.appendChild(renderer.domElement);
+
+    function onWindowResize() {
+
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+
+      renderer.setSize(window.innerWidth, window.innerHeight);
+
+    }
 
     var geometry = new THREE.BoxGeometry();
     var material = new THREE.MeshPhongMaterial({ color: 0x3f80e8 });
