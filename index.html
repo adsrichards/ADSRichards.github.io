@@ -13,32 +13,64 @@
   <script src="https://threejs.org/build/three.min.js"></script>
   <script src="js/FlyingCubes.js"></script>
   <div>
-    <div style="top:5%; left: 5%; color:#d6d6d6; position: absolute; 
-                font-size: 24pt; font-family: 'Audiowide', cursive;"><b>ADSR</b>
+    <div style="
+      top:5%; 
+      left: 5%; 
+      color:#d6d6d6; 
+      position: absolute; 
+      font-size: 24pt; 
+      font-family: 'Audiowide', cursive;">
+      <b>ADSR</b>
     </div>
-    <div style="width:100%; top:35%; text-align: center; color:#d6d6d6; 
-                position: absolute; font-size: 36pt; font-family: Arial;">
+    <div style="
+      width:100%; 
+      top:35%; 
+      text-align: center; 
+      color:#d6d6d6; 
+      position: absolute; 
+      font-size: 36pt; 
+      font-family: Arial;">
       <b style="letter-spacing: 2px;">Addison Richards</b> <br>
       <p style="font-size: 18pt; letter-spacing: 1px;"><b>Software Developer</b></p>
-      <div style="margin: auto; text-align: center; width: 150px; height: 50px; 
-                  background-color: #d6d6d6; font-size: 10pt; color: black; border-radius: 25px;">
+      <div style="
+        margin: auto; 
+        text-align: center; 
+        width: 150px; 
+        height: 50px; 
+        background-color: #d6d6d6; 
+        font-size: 10pt; 
+        color: black; 
+        border-radius: 25px;">
         <p style="padding-top: 17.5px; font-weight: 800;">SEE PROJECTS</p>
       </div>
     </div>
-    <div style="bottom:5%; right: 5%; color:#d6d6d6; position: absolute; 
-                font-size: 20pt; font-family: Arial;">
-      <a href="https://github.com/adsrichards" target="_blank"><img title="GitHub" src="img/logos/png/GitHub-Mark-Light-64px.png" style="width:36px; height:auto; margin-right: 1px;"></img></a>
-      <a href="https://codepen.io/adsrichards" target="_blank"><img title="CodePen" src="img/logos/png/CodePen2.png" style="width:36px; height:auto; margin-right: 1px;"></img></a>
-      <a href="https://www.linkedin.com/in/adsrichards/" target="_blank"><img title="LinkedIn" src="img/logos/png/LinkedIn.png" style="width:36px; height:auto;"></img></a>
+    <div style="
+      bottom:5%; 
+      right: 5%; 
+      color:#d6d6d6; 
+      position: absolute; 
+      font-size: 20pt;">
+      <a href="https://github.com/adsrichards" target="_blank">
+        <img title="GitHub" src="img/logos/png/GitHub-Mark-Light-64px.png"
+          style="width:36px; height:auto; margin-right: 1px;"></img>
+      </a>
+      <a href="https://codepen.io/adsrichards" target="_blank">
+        <img title="CodePen" src="img/logos/png/CodePen2.png" style="width:36px; height:auto; margin-right: 1px;"></img>
+      </a>
+      <a href="https://www.linkedin.com/in/adsrichards/" target="_blank">
+        <img title="LinkedIn" src="img/logos/png/LinkedIn.png" style="width:36px; height:auto;"></img>
+      </a>
       <img title="Resume" src="img/logos/png/Resume.png" style="width:36px; height:auto;"></img>
     </div>
   </div>
 
   <div class="spacer2"></div>
-  <div style="display: flex; flex-wrap: wrap; margin: auto">
-    <div class="center" style="left: 0; width:50%; box-shadow: 0px 8px 16px 4px rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
-                  margin: 50px; padding: 20px 50px 20px 50px">
-      <h2 style="text-align: center; color: #3e67aa">ABOUT ME</h2>
+  <div style="
+    display: flex; 
+    flex-wrap: wrap;
+    justify-content: space-around;">
+    <div class="about-container">
+      <h2 class="title">ABOUT ME</h2>
       <p>
         I recently graduated from the University of Waterloo with a bachelor's degree in mathematical physics. My
         electives were mainly
@@ -56,39 +88,82 @@
         greater Toronto area.
       </p>
     </div>
-    <div class="center"
-      style="right: 0; width:30%; box-shadow: 0px 8px 16px 4px rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19); margin: 50px; padding: 20px 50px 20px 50px">
-      <h2 style="text-align: center; color: #3e67aa">MY FOCUS</h2>
-      <div>
-        <img title="JavaScript" width="64"
-          src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png">
-        <img title="React" width="128" src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg">
-        <img title="Node.js" width="96" src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg">
+    <div class="focus-container">
+      <h2 class="title">MY FOCUS</h2>
+      <div style="
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-around;">
+        <div style="
+          width: 50%;
+          display: flex;
+          flex-wrap: wrap;
+          align-items: center;
+          justify-content: space-around;">
+          <img title="JavaScript" width="64"
+            src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png">
+          <img title="React" width="128" src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg">
+        </div>
+        <div style="
+          width: 50%;
+          display: flex;
+          flex-wrap: wrap;
+          margin: 10;
+          align-items: center;
+          justify-content: space-around;">
+          <img title="WebGL" width="108" style="padding-right: 10px;"
+            src="https://upload.wikimedia.org/wikipedia/commons/2/25/WebGL_Logo.svg">
+          <img title="Node.js" width="84" style="padding-top: 10px;"
+            src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg">
+        </div>
       </div>
     </div>
   </div>
 
   <div class="spacer2"></div>
 
-  <div
-    style="width:80%; margin-top: 50px; margin-bottom: 50px; margin-left: auto; margin-right: auto; padding: 0px 50px 20px 50px">
-    <h2 style="text-align: center; color: #3e67aa">PROJECT PORTFOLIO</h2><br>
+  <div style="
+      width:80%; 
+      margin: 50px auto;">
+    <h2 class="title">PROJECT PORTFOLIO</h2><br>
     <div class="thumb">
-      <a target="_self" href="Vicsek.html">
+      <div id="projVicsek">
         <img src="img/Vicsek.png"
           style="width: 256px; height: 256px; box-shadow: 0px 24px 16px 16px rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" />
         <p><b>Particle Swarming</b></p>
-      </a>
-      <a target="_self" href="galaga.html">
+      </div>
+      <div id="projGalaga">
         <img src="img/galaga.png"
           style="width: 256px; height: 256px; box-shadow: 0px 24px 16px 16px rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" />
         <p><b>Self-Learning Galaga</b></p>
-      </a>
-      <a target="_self" href="FlyingCubes.html">
+      </div>
+      <div id="projFlyingCubes">
         <img src="img/FlyingCubes.png"
           style="width: 256px; height: 256px; box-shadow: 0px 24px 16px 16px rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" />
         <p><b>Three.js Flying Cubes</b></p>
-      </a>
+      </div>
+    </div>
+  </div>
+
+  <div id="modalVicsek" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p>Some text in the Modal..</p>
+    </div>
+  </div>
+
+  <div id="modalGalaga" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p>Some text in the Modal..</p>
+    </div>
+  </div>
+
+  <div id="modalFlyingCubes" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p>Some text in the Modal..</p>
     </div>
   </div>
 
@@ -99,12 +174,59 @@
     <div class="spacer2"></div>
     <p style="font-size: 24pt; font-family: 'Audiowide', cursive; padding: 0; margin-bottom: 10px;">ADSR</p>
     <div style="padding: 0;">
-      <img src="img/logos/png/GitHub-Mark-Light-64px.png" style="width:36px; height:auto; margin-left: 1px; margin-right: 1px;"></img>
+      <img src="img/logos/png/GitHub-Mark-Light-64px.png"
+        style="width:36px; height:auto; margin-left: 1px; margin-right: 1px;"></img>
       <img src="img/logos/png/CodePen2.png" style="width:36px; height:auto; margin-left: 1px; margin-right: 1px;"></img>
       <img src="img/logos/png/LinkedIn.png" style="width:36px; height:auto; margin-left: 1px; margin-right: 1px;"></img>
       <img src="img/logos/png/Resume.png" style="width:36px; height:auto; margin-left: 1px; margin-right: 1px;"></img>
     </div>
   </div>
+
+  <script>
+    const modalVicsek = document.getElementById("modalVicsek");
+    const projVicsek = document.getElementById("projVicsek");
+
+    const modalGalaga = document.getElementById("modalGalaga");
+    const projGalaga = document.getElementById("projGalaga");
+
+    const modalFlyingCubes = document.getElementById("modalFlyingCubes");
+    const projFlyingCubes = document.getElementById("projFlyingCubes");
+    
+    const span = document.getElementsByClassName("close");
+    let currentModal;
+
+    projVicsek.onclick = () => {
+      currentModal = modalVicsek;
+      currentModal.style.display = "block";
+      spanIndex = 0;
+      span[0].onclick = () => {
+        currentModal.style.display = "none";
+      }
+    }
+
+    projGalaga.onclick = () => {
+      currentModal = modalGalaga;
+      currentModal.style.display = "block";
+      span[1].onclick = () => {
+        currentModal.style.display = "none";
+      }
+    }
+
+    projFlyingCubes.onclick = () => {
+      currentModal = modalFlyingCubes;
+      currentModal.style.display = "block";
+      span[2].onclick = () => {
+        currentModal.style.display = "none";
+      }
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = (e) => {
+      if (e.target == currentModal) {
+        currentModal.style.display = "none";
+      }
+    }
+  </script>
 
 </body>
 

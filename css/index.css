@@ -1,13 +1,11 @@
-html , body {
-  height: 100%;
-  width: 100%;
-  font-family: Arial;
+html, body {
+  font-family: Arial, Helvetica, sans-serif;
   margin: 0;
-  background: #f1f1f1;
+  background: #f4f4f4;
 }
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .header {
@@ -18,43 +16,13 @@ html , body {
   color: white;
 }
 
-.navbar {
-  display: flex;
-  background-color: #333;
-}
-
-.navbar a {
-  color: white;
-  padding: 10px 15px;
+a {
   text-decoration: none;
-  text-align: center;
-  margin: 4px 4px;
 }
 
-.navbar a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.row {  
+.row {
   display: flex;
   flex-wrap: wrap;
-}
-
-.sideL {
-  float: left;
-  height: 800px;
-  flex: 25%;
-  background-color: #f1f1f1;
-  padding: 20px;
-}
-
-.sideR {
-  float: right;
-  height: 800px;
-  flex: 2%;
-  background-color: #f1f1f1;
-  padding: 0px;
 }
 
 section:after {
@@ -69,18 +37,6 @@ section:after {
   padding: 20px;
 }
 
-.profiles {
-  text-align: center;
-  background-color: #aaa;
-  width: 75%;
-  padding: 15px;
-}
-
-.spacer1 {
-  padding: 20px;
-  background: #f1f1f1;
-}
-
 .spacer2 {
   top: 0px;
   height: 50px;
@@ -90,7 +46,6 @@ section:after {
 
 .footer {
   text-align: center;
-  font-family: Arial;
   bottom: 0px;
   height: 200px;
   width: 100%;
@@ -99,28 +54,69 @@ section:after {
 }
 
 @media screen and (max-width: 700px) {
-  .row, .navbar {   
+  .row, .navbar {
     flex-direction: column;
   }
 }
 
-.button {
-  background-color: #333;
+h2.title {
   text-align: center;
-  display: inline-block;
-  margin: 5px 5px;
-  cursor: pointer;
+  color: #3e67aa
 }
 
-div.thumb {
-  margin: auto;
-  display: inline-grid;
-  grid-template-columns: 250px 250px 250px;
+.about-container {
+  order: 2;
+  background-color: white;
+  width: 90%;
+  box-shadow: 0px 8px 16px 4px rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 0px 0px 50px 0px;
+  padding: 20px 15px;
+}
+
+.focus-container {
+  order: 1;
+  background-color: white;
+  width: 90%;
+  box-shadow: 0px 8px 16px 4px rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  margin: 50px 0px;
+  padding: 20px 15px;
+}
+
+@media(min-width: 1200px) {
+  .about-container {
+    width: 50%;
+    order: 1;
+    padding: 20px 50px;
+    margin: 50px 0px;
+  }
+  .focus-container {
+    width: 35%;
+    order: 2;
+    padding: 20px 50px;
+  }
+}
+
+.thumb {
+  display: grid;
+  justify-content: center;
+  grid-template-columns: 256px;
   grid-gap: 60px;
   padding: 0 50px 50px 50px;
 }
 
-div.thumb a {
+@media(min-width: 800px) {
+  .thumb {
+    grid-template-columns: 256px 256px;
+  }
+}
+
+@media(min-width: 1000px) {
+  .thumb {
+    grid-template-columns: 256px 256px 256px;
+  }
+}
+
+.thumb div {
   opacity: 1;
   display: inline-block;
   text-decoration: none;
@@ -128,7 +124,11 @@ div.thumb a {
   height: 256px;
 }
 
-div.thumb a p {
+.thumb div:hover {
+  cursor: pointer;
+}
+
+.thumb div p {
   text-decoration: none;
   white-space: nowrap;
   text-align: center;
@@ -140,18 +140,48 @@ div.thumb a p {
   opacity: 0.8;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-div.thumb a:hover p {
+
+.thumb div:hover p {
   opacity: 0.6;
 }
 
-.center {
-  width: 100%;
-  background: rgb(255, 255, 255);
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
   margin: auto;
-  padding-left: 20px;
-  padding-right: 20px;
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+}
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 canvas {
