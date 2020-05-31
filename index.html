@@ -19,7 +19,9 @@
       color:#d6d6d6; 
       position: absolute; 
       font-size: 24pt; 
-      font-family: 'Audiowide', cursive;">
+      font-family: 'Audiowide', cursive;
+      cursor: default;
+      user-select: none;">
       <b>ADSR</b>
     </div>
     <div style="
@@ -29,20 +31,16 @@
       color:#d6d6d6; 
       position: absolute; 
       font-size: 36pt; 
-      font-family: Arial;">
+      font-family: Arial;
+      cursor: default;
+      user-select: none;">
       <b style="letter-spacing: 2px;">Addison Richards</b> <br>
       <p style="font-size: 18pt; letter-spacing: 1px;"><b>Software Developer</b></p>
-      <div style="
-        margin: auto; 
-        text-align: center; 
-        width: 150px; 
-        height: 50px; 
-        background-color: #d6d6d6; 
-        font-size: 10pt; 
-        color: black; 
-        border-radius: 25px;">
-        <p style="padding-top: 17.5px; font-weight: 800;">SEE PROJECTS</p>
-      </div>
+      <a href="#projects">
+        <div class="button">
+          <p style="padding-top: 17.5px; font-weight: 800;">SEE PROJECTS</p>
+        </div>
+      </a>
     </div>
     <div style="
       bottom:5%; 
@@ -123,7 +121,7 @@
 
   <div class="spacer2"></div>
 
-  <div style="
+  <div id="projects" style="
       width:80%; 
       margin: 50px auto;">
     <h2 class="title">PROJECT PORTFOLIO</h2><br>
@@ -176,10 +174,12 @@
           style="width:36px; height:auto; margin-left: 1px; margin-right: 1px;"></img>
       </a>
       <a href="https://codepen.io/adsrichards" target="_blank">
-        <img src="img/logos/png/CodePen2.png" style="width:36px; height:auto; margin-left: 1px; margin-right: 1px;"></img>
+        <img src="img/logos/png/CodePen2.png"
+          style="width:36px; height:auto; margin-left: 1px; margin-right: 1px;"></img>
       </a>
       <a href="https://www.linkedin.com/in/adsrichards/" target="_blank">
-        <img src="img/logos/png/LinkedIn.png" style="width:36px; height:auto; margin-left: 1px; margin-right: 1px;"></img>
+        <img src="img/logos/png/LinkedIn.png"
+          style="width:36px; height:auto; margin-left: 1px; margin-right: 1px;"></img>
       </a>
       <img src="img/logos/png/Resume.png" style="width:36px; height:auto; margin-left: 1px; margin-right: 1px;"></img>
     </div>
@@ -194,7 +194,7 @@
 
     const modalFlyingCubes = document.getElementById("modalFlyingCubes");
     const projFlyingCubes = document.getElementById("projFlyingCubes");
-    
+
     const span = document.getElementsByClassName("close");
     let currentModal;
 
