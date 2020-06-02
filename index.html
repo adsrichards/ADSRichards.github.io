@@ -79,42 +79,27 @@
         CPU clusters.
       </p>
       <p>
-        I love working hard and learning new things. My favourite part about full-stack software development is the
+        I love working hard and learning new things. My favourite part about software development is the
         constantly evolving set of
-        technologies to keep up with. Currently, I am seeking full-time opportunities in full-stack or front-end
-        software development in the
-        greater Toronto area.
+        technologies to keep up with. Currently, I am seeking full-time opportunities in front-end or full-stack
+        software development in the greater Toronto area.
       </p>
     </div>
     <div class="focus-container">
       <h2 class="title">MY FOCUS</h2>
-      <div style="
-        display: flex;
-        flex-wrap: wrap;
-        align-items: center;
-        justify-content: space-around;">
-        <div style="
-          width: 50%;
-          display: flex;
-          flex-wrap: wrap;
-          align-items: center;
-          justify-content: space-around;">
-          <img title="JavaScript" width="64"
-            src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png">
-          <img title="React" width="128" src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg">
-        </div>
-        <div style="
-          width: 50%;
-          display: flex;
-          flex-wrap: wrap;
-          margin: 10;
-          align-items: center;
-          justify-content: space-around;">
-          <img title="WebGL" width="108" style="padding-right: 10px;"
-            src="https://upload.wikimedia.org/wikipedia/commons/2/25/WebGL_Logo.svg">
-          <img title="Node.js" width="84" style="padding-top: 10px;"
-            src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg">
-        </div>
+      <div class="focus-logos">
+        <img title="JavaScript" width="64"
+          src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png">
+        <img title="React" width="128" style="position: relative; bottom: 10px; left: 15px;"
+          src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg">
+        <img title="WebGL" width="108" style="position: relative; top: 13px; left: 13px;"
+          src="https://upload.wikimedia.org/wikipedia/commons/2/25/WebGL_Logo.svg">
+        <img title="C++" width="64"
+          src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg">
+        <img title="Python" width="64" style="position: relative;  top: 5px; left: 47px;"
+          src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg">
+        <img title="Node.js" width="84" style="position: relative;  top: 10px; left: 23px;"
+          src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg">
       </div>
     </div>
   </div>
@@ -123,13 +108,18 @@
 
   <div id="projects" style="
       width:80%; 
-      margin: 50px auto;">
-    <h2 class="title">PROJECT PORTFOLIO</h2><br>
+      margin: 0 auto; padding: 45px 0">
+    <h2 class="title" style="margin-bottom: 45px;">PROJECT PORTFOLIO</h2><br>
     <div class="thumb">
       <div id="projVicsek">
         <img src="img/Vicsek.png"
           style="width: 256px; height: 256px; box-shadow: 0px 24px 16px 16px rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" />
         <p><b>Particle Swarming</b></p>
+      </div>
+      <div id="projBistable">
+        <img src="img/BistableGeneExpression.png"
+          style="width: 256px; height: 256px; box-shadow: 0px 24px 16px 16px rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-style: solid; border-color: #474747;" />
+        <p><b>Bistable Gene Expression</b></p>
       </div>
       <div id="projGalaga">
         <img src="img/galaga.png"
@@ -139,22 +129,115 @@
       <div id="projFlyingCubes">
         <img src="img/FlyingCubes.png"
           style="width: 256px; height: 256px; box-shadow: 0px 24px 16px 16px rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19);" />
-        <p><b>Three.js Flying Cubes</b></p>
+        <p><b>Flying Cubes Background</b></p>
+      </div>
+      <div id="projDipole">
+        <img src="img/dipole.png"
+          style="width: 256px; height: 256px; box-shadow: 0px 24px 16px 16px rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19); border-style: solid; border-color: #474747;" />
+        <p><b>Lattice Dipole Monte Carlo</b></p>
       </div>
     </div>
   </div>
 
   <div id="modalVicsek" class="modal">
+    <div class="modal-content" style="background-color: white;">
+      <span class="close">&times;</span>
+      <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+        <div style="width: 512px; height: 512px;">
+          <img src="img/gif/Vicsek.gif" style="width: 512px; height: 512px;" />
+        </div>
+        <div style="width: 400px; height: 512px; background-color: white; margin: 0 20px;">
+          <h2 style="text-align: center;">Particle Swarming</h2>
+          <p>
+            Particle generator made with JavaScript and WebGL. Particles tend to follow the average
+            direction of their nearby neighbours but fluctuate randomly depending on the level of noise.
+            More information about the algorithm can be found
+            <a href="https://en.wikipedia.org/wiki/Vicsek_model" target="_blank"
+              style="color: rgb(57, 91, 158); text-decoration: none;">
+              here</a>. See on CoderPad for an interactive demo.
+          </p>
+          <div>
+            <div class="button" style="background-color: #333; color: white">
+              <p style="padding-top: 17.5px; font-weight: 800;">See on GitHub</p>
+            </div>
+            <div class="button" style="background-color: #333; color: white">
+              <p style="padding-top: 17.5px; font-weight: 800;">See on CoderPad</p>
+            </div>
+          </div>
+          <div style="display: flex; justify-content: space-around; position: relative; top: 55px;">
+            <img title="JavaScript" width="128"
+              src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png">
+            <img title="WebGL" width="216" src="https://upload.wikimedia.org/wikipedia/commons/2/25/WebGL_Logo.svg">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modalBistable" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
-      <p>Some text in the Modal..</p>
+      <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+        <div style="width: 512px; height: 512px;">
+          <img src="img/BistableGeneExpression.png"
+            style="width: 512px; height: 512px; border-style: solid; border-color: #474747;" />
+        </div>
+        <div style="width: 400px; height: 512px; background-color: white; margin: 0 20px; padding: ">
+          <h2 style="text-align: center;">Bistable Gene Expression</h2>
+          <p>
+            A quick demo of the stochastic gene expression model that I studied during the winter of 2019
+            as part of my research assistantship. I helped our group by implementing the Gillespie algorithm for this
+            model, generating lots of data, and performing some data analysis. For more information, please see our
+            recently published conference paper
+            <a href="https://doi.org/10.1016/j.ifacol.2019.12.267" target="_blank"
+              style="color: rgb(57, 91, 158); text-decoration: none;">
+              here</a>.
+          </p>
+          <div>
+            <div class="button" style="background-color: #333; color: white">
+              <p style="padding-top: 17.5px; font-weight: 800;">See on GitHub</p>
+            </div>
+            <div class="button" style="background-color: #333; color: white">
+              <p style="padding-top: 17.5px; font-weight: 800;">See on CoderPad</p>
+            </div>
+          </div>
+          <div style="display: flex; justify-content: space-around; position: relative; top: 40px;">
+            <img title="JavaScript" width="128"
+              src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png">
+            <img title="Plotly" style="width: 256px;" src="img/logos/png/plotly.png">
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
   <div id="modalGalaga" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
-      <p>Some text in the Modal..</p>
+      <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+        <div style="width: 512px; height: 512px;">
+          <img src="img/galaga.png" style="width: 512px; height: 512px;" />
+        </div>
+        <div style="width: 400px; height: 512px; background-color: rgb(255, 255, 255); margin: 0 20px;">
+          <h2 style="text-align: center;">Self-Learning Galaga</h2>
+          <p>
+            Lua script that plays the classic arcade game Galaga for 2000 frames. The script is given random
+            instructions on which
+            buttons to press at each frame. Before each iteration of gameplay, the script changes it's instructions
+            slightly and
+            accepts the change if it leads to an increased score. The script can beat the first level in about 80
+            iterations.
+          </p>
+          <div>
+            <div class="button" style="background-color: #333; color: white; position: relative; top: 25px;">
+              <p style="padding-top: 17.5px; font-weight: 800;">See on GitHub</p>
+            </div>
+          </div>
+          <div style="display: flex; justify-content: space-around; position: relative; top: 65px;">
+            <img title="Lua" style="width: 172px;" src="img/logos/png/Lua.png" />
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -162,6 +245,40 @@
     <div class="modal-content">
       <span class="close">&times;</span>
       <p>Some text in the Modal..</p>
+    </div>
+  </div>
+
+  <div id="modalDipole" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+        <div style="width: 512px; height: 512px;">
+          <img src="img/dipole.png" style="width: 512px; height: 512px; border-style: solid; border-color: #474747;" />
+        </div>
+        <div style="width: 400px; height: 512px; background-color: rgb(255, 255, 255); margin: 0 20px;">
+          <h2 style="text-align: center;">Lattice Dipole Monte Carlo</h2>
+          <p>
+            Markov-chain Monte Carlo C++ code which simulates the thermodynamics for a system of magnetic dipoles with
+            rotational freedom on a lattice.
+            The code can be run on a high-performance computing cluster using MPI to simulate independent systems in
+            parallel. Each simulation produces
+            samples representative of uncorrelated measurements of a system in thermodynamic equilibrium. Data produced
+            by this code was used in
+            <a href="https://doi.org/10.1038/s41467-018-04297-3" target="_blank"
+              style="color: rgb(57, 91, 158); text-decoration: none;">this</a>
+            publication.
+          </p>
+          <div>
+            <div class="button" style="background-color: #333; color: white; position: relative; top: 10px;">
+              <p style="padding-top: 17.5px; font-weight: 800;">See on GitHub</p>
+            </div>
+          </div>
+          <div style="display: flex; justify-content: space-around; position: relative; top: 40px;">
+            <img title="C++" style="width: 128px;"
+              src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" />
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -189,11 +306,17 @@
     const modalVicsek = document.getElementById("modalVicsek");
     const projVicsek = document.getElementById("projVicsek");
 
+    const modalBistable = document.getElementById("modalBistable");
+    const projBistable = document.getElementById("projBistable");
+
     const modalGalaga = document.getElementById("modalGalaga");
     const projGalaga = document.getElementById("projGalaga");
 
     const modalFlyingCubes = document.getElementById("modalFlyingCubes");
     const projFlyingCubes = document.getElementById("projFlyingCubes");
+
+    const modalDipole = document.getElementById("modalDipole");
+    const projDipole = document.getElementById("projDipole");
 
     const span = document.getElementsByClassName("close");
     let currentModal;
@@ -207,10 +330,18 @@
       }
     }
 
+    projBistable.onclick = () => {
+      currentModal = modalBistable;
+      currentModal.style.display = "block";
+      span[1].onclick = () => {
+        currentModal.style.display = "none";
+      }
+    }
+
     projGalaga.onclick = () => {
       currentModal = modalGalaga;
       currentModal.style.display = "block";
-      span[1].onclick = () => {
+      span[2].onclick = () => {
         currentModal.style.display = "none";
       }
     }
@@ -218,12 +349,19 @@
     projFlyingCubes.onclick = () => {
       currentModal = modalFlyingCubes;
       currentModal.style.display = "block";
-      span[2].onclick = () => {
+      span[3].onclick = () => {
         currentModal.style.display = "none";
       }
     }
 
-    // When the user clicks anywhere outside of the modal, close it
+    projDipole.onclick = () => {
+      currentModal = modalDipole;
+      currentModal.style.display = "block";
+      span[4].onclick = () => {
+        currentModal.style.display = "none";
+      }
+    }
+
     window.onclick = (e) => {
       if (e.target == currentModal) {
         currentModal.style.display = "none";
