@@ -36,11 +36,13 @@
       user-select: none;">
       <b style="letter-spacing: 2px;">Addison Richards</b> <br>
       <p style="font-size: 18pt; letter-spacing: 1px;"><b>Software Developer</b></p>
-      <a href="#projects">
-        <div class="button">
-          <p style="padding-top: 17.5px; font-weight: 800;">SEE PROJECTS</p>
-        </div>
-      </a>
+      <div style="display: flex; justify-content: center;">
+        <a href="#projects">
+          <div class="button">
+            <p style="padding-top: 17.5px; font-weight: 800;">SEE PROJECTS</p>
+          </div>
+        </a>
+      </div>
     </div>
     <div style="
       bottom:5%; 
@@ -94,8 +96,7 @@
           src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg">
         <img title="WebGL" width="108" style="position: relative; top: 13px; left: 13px;"
           src="https://upload.wikimedia.org/wikipedia/commons/2/25/WebGL_Logo.svg">
-        <img title="C++" width="64"
-          src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg">
+        <img title="C++" width="64" src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg">
         <img title="Python" width="64" style="position: relative;  top: 5px; left: 47px;"
           src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg">
         <img title="Node.js" width="84" style="position: relative;  top: 10px; left: 23px;"
@@ -108,7 +109,8 @@
 
   <div id="projects" style="
       width:80%; 
-      margin: 0 auto; padding: 45px 0">
+      margin: 0 auto; 
+      padding: 45px 0">
     <h2 class="title" style="margin-bottom: 45px;">PROJECT PORTFOLIO</h2><br>
     <div class="thumb">
       <div id="projVicsek">
@@ -145,28 +147,32 @@
       <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
         <div style="width: 512px; height: 512px;">
           <video autoplay loop muted playsinline>
-            <source src="mov/Vicsek.mp4" type="video/mp4"> 
+            <source src="mov/Vicsek.mp4" type="video/mp4">
           </video>
         </div>
         <div style="width: 400px; height: 512px; background-color: white; margin: 0 20px;">
-          <h2 style="text-align: center;">Particle Swarming</h2>
+          <h2>Particle Swarming</h2>
           <p>
             Particle generator made with JavaScript and WebGL. Particles tend to follow the average
             direction of their nearby neighbours but fluctuate randomly depending on the level of noise.
             More information about the algorithm can be found
             <a href="https://en.wikipedia.org/wiki/Vicsek_model" target="_blank"
               style="color: rgb(57, 91, 158); text-decoration: none;">
-              here</a>. See on CoderPad for an interactive demo.
+              here</a>. See on CodePen for an interactive demo.
           </p>
-          <div>
-            <div class="button" style="background-color: #333; color: white">
-              <p style="padding-top: 17.5px; font-weight: 800;">See on GitHub</p>
-            </div>
-            <div class="button" style="background-color: #333; color: white">
-              <p style="padding-top: 17.5px; font-weight: 800;">See on CoderPad</p>
-            </div>
+          <div class="modal-buttons-container" style="position: relative; top: 40px;">
+            <a href="https://github.com/ADSRichards/VicsekModel" target="_blank">
+              <div class="modal-button">
+                <p>See on GitHub</p>
+              </div>
+            </a>
+            <a href="https://codepen.io/adsrichards/pen/JjYVZpV?editors=0010" target="_blank">
+              <div class="modal-button">
+                <p>See on CodePen</p>
+              </div>
+            </a>
           </div>
-          <div style="display: flex; justify-content: space-around; position: relative; top: 55px;">
+          <div style="display: flex; justify-content: space-around; position: relative; top: 110px;">
             <img title="JavaScript" width="128"
               src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png">
             <img title="WebGL" width="216" src="https://upload.wikimedia.org/wikipedia/commons/2/25/WebGL_Logo.svg">
@@ -182,11 +188,11 @@
       <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
         <div style="width: 506px; height: 506px; border-style: solid; border-color: #474747;">
           <video autoplay loop muted playsinline>
-            <source src="mov/Bistable.mp4" type="video/mp4"> 
+            <source src="mov/Bistable.mp4" type="video/mp4">
           </video>
         </div>
         <div style="width: 400px; height: 512px; background-color: white; margin: 0 20px; padding: ">
-          <h2 style="text-align: center;">Bistable Gene Expression</h2>
+          <h2>Bistable Gene Expression</h2>
           <p>
             A quick demo of the stochastic gene expression model that I studied during the winter of 2019
             as part of my research assistantship. I helped our group by implementing the Gillespie algorithm for this
@@ -196,15 +202,19 @@
               style="color: rgb(57, 91, 158); text-decoration: none;">
               here</a>.
           </p>
-          <div>
-            <div class="button" style="background-color: #333; color: white">
-              <p style="padding-top: 17.5px; font-weight: 800;">See on GitHub</p>
-            </div>
-            <div class="button" style="background-color: #333; color: white">
-              <p style="padding-top: 17.5px; font-weight: 800;">See on CoderPad</p>
-            </div>
+          <div class="modal-buttons-container" style="position: relative; top: 40px;">
+            <a href="https://github.com/ADSRichards/Bistable_Gene_Expression" target="_blank">
+              <div class="modal-button">
+                <p>See on GitHub</p>
+              </div>
+            </a>
+            <a href="https://codepen.io/adsrichards/pen/QWyWood" target="_blank">
+              <div class="modal-button">
+                <p>See on CodePen</p>
+              </div>
+            </a>
           </div>
-          <div style="display: flex; justify-content: space-around; position: relative; top: 40px;">
+          <div style="display: flex; justify-content: space-around; position: relative; top: 100px;">
             <img title="JavaScript" width="128"
               src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png">
             <img title="Plotly" style="width: 256px;" src="img/logos/png/plotly.png">
@@ -231,10 +241,12 @@
             accepts the change if it leads to an increased score. The script can beat the first level in about 80
             iterations.
           </p>
-          <div>
-            <div class="button" style="background-color: #333; color: white; position: relative; top: 25px;">
-              <p style="padding-top: 17.5px; font-weight: 800;">See on GitHub</p>
-            </div>
+          <div class="modal-buttons-container">
+            <a href="https://github.com/ADSRichards/Self-Learning-Galaga" target="_blank">
+              <div class="modal-button" style="position: relative; top: 25px;">
+                <p>See on GitHub</p>
+              </div>
+            </a>
           </div>
           <div style="display: flex; justify-content: space-around; position: relative; top: 65px;">
             <img title="Lua" style="width: 172px;" src="img/logos/png/Lua.png" />
@@ -250,21 +262,23 @@
       <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
         <div style="width: 512px; height: 512px;">
           <video autoplay loop muted playsinline>
-            <source src="mov/FlyingCubes.mp4" type="video/mp4"> 
+            <source src="mov/FlyingCubes.mp4" type="video/mp4">
           </video>
         </div>
         <div style="width: 400px; height: 512px; background-color: rgb(255, 255, 255); margin: 0 20px;">
           <h2 style="text-align: center;">Flying Cubes Background</h2>
           <p>
-            JavaScript script that I made for the backdrop of my website which randomly generates rotating cubes 
+            JavaScript script that I made for the backdrop of my website which randomly generates rotating cubes
             using the Three.js WebGL API.
           </p>
-          <div>
-            <div class="button" style="background-color: #333; color: white; position: relative; top: 25px;">
-              <p style="padding-top: 17.5px; font-weight: 800;">See on CoderPad</p>
-            </div>
+          <div class="modal-buttons-container">
+            <a href="https://codepen.io/adsrichards/pen/MWaRXvQ" target="_blank">
+              <div class="modal-button" style="position: relative; top: 35px;">
+                <p>See on CodePen</p>
+              </div>
+            </a>
           </div>
-          <div style="display: flex; justify-content: space-around; position: relative; top: 55px;">
+          <div style="display: flex; justify-content: space-around; position: relative; top: 175px;">
             <img title="JavaScript" width="128"
               src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png">
             <img title="WebGL" width="216" src="https://upload.wikimedia.org/wikipedia/commons/2/25/WebGL_Logo.svg">
@@ -294,10 +308,12 @@
               style="color: rgb(57, 91, 158); text-decoration: none;">this</a>
             publication.
           </p>
-          <div>
-            <div class="button" style="background-color: #333; color: white; position: relative; top: 10px;">
-              <p style="padding-top: 17.5px; font-weight: 800;">See on GitHub</p>
-            </div>
+          <div class="modal-buttons-container">
+            <a href="https://github.com/ADSRichards/Lattice_Dipole_Ewald_Summation" target="_blank">
+              <div class="modal-button" style="position: relative; top: 10px;">
+                <p>See on GitHub</p>
+              </div>
+            </a>
           </div>
           <div style="display: flex; justify-content: space-around; position: relative; top: 40px;">
             <img title="C++" style="width: 128px;"
