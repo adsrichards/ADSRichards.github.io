@@ -180,9 +180,10 @@
     <div class="modal-content">
       <span class="close">&times;</span>
       <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
-        <div style="width: 512px; height: 512px;">
-          <img src="img/BistableGeneExpression.png"
-            style="width: 512px; height: 512px; border-style: solid; border-color: #474747;" />
+        <div style="width: 506px; height: 506px; border-style: solid; border-color: #474747;">
+          <video autoplay loop muted playsinline>
+            <source src="mov/Bistable.mp4" type="video/mp4"> 
+          </video>
         </div>
         <div style="width: 400px; height: 512px; background-color: white; margin: 0 20px; padding: ">
           <h2 style="text-align: center;">Bistable Gene Expression</h2>
@@ -246,7 +247,30 @@
   <div id="modalFlyingCubes" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
-      <p>Some text in the Modal..</p>
+      <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+        <div style="width: 512px; height: 512px;">
+          <video autoplay loop muted playsinline>
+            <source src="mov/FlyingCubes.mp4" type="video/mp4"> 
+          </video>
+        </div>
+        <div style="width: 400px; height: 512px; background-color: rgb(255, 255, 255); margin: 0 20px;">
+          <h2 style="text-align: center;">Self-Learning Galaga</h2>
+          <p>
+            JavaScript script that I made for the backdrop of my website which randomly generates rotating cubes 
+            using the Three.js WebGL API.
+          </p>
+          <div>
+            <div class="button" style="background-color: #333; color: white; position: relative; top: 25px;">
+              <p style="padding-top: 17.5px; font-weight: 800;">See on CoderPad</p>
+            </div>
+          </div>
+          <div style="display: flex; justify-content: space-around; position: relative; top: 55px;">
+            <img title="JavaScript" width="128"
+              src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png">
+            <img title="WebGL" width="216" src="https://upload.wikimedia.org/wikipedia/commons/2/25/WebGL_Logo.svg">
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -265,7 +289,7 @@
             The code can be run on a high-performance computing cluster using MPI to simulate independent systems in
             parallel. Each simulation produces
             samples representative of uncorrelated measurements of a system in thermodynamic equilibrium. Data produced
-            by this code was used in
+            by this code were used in
             <a href="https://doi.org/10.1038/s41467-018-04297-3" target="_blank"
               style="color: rgb(57, 91, 158); text-decoration: none;">this</a>
             publication.
