@@ -324,9 +324,6 @@
     const modalGalaga = document.getElementById("modalGalaga");
     const projGalaga = document.getElementById("projGalaga");
 
-    const modalFlyingCubes = document.getElementById("modalFlyingCubes");
-    const projFlyingCubes = document.getElementById("projFlyingCubes");
-
     const modalDipole = document.getElementById("modalDipole");
     const projDipole = document.getElementById("projDipole");
 
@@ -358,18 +355,10 @@
       }
     }
 
-    projFlyingCubes.onclick = () => {
-      currentModal = modalFlyingCubes;
-      currentModal.style.display = "block";
-      span[3].onclick = () => {
-        currentModal.style.display = "none";
-      }
-    }
-
     projDipole.onclick = () => {
       currentModal = modalDipole;
       currentModal.style.display = "block";
-      span[4].onclick = () => {
+      span[3].onclick = () => {
         currentModal.style.display = "none";
       }
     }
