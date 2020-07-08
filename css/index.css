@@ -126,26 +126,26 @@ h2.title {
 .thumb {
   display: grid;
   justify-content: center;
-  grid-template-columns: 256px;
+  grid-template-columns: 200px;
   grid-gap: 60px;
   padding: 0 50px 50px 50px;
 }
 
 @media(min-width: 768px) {
   .thumb {
-    grid-template-columns: 256px 256px;
+    grid-template-columns: 200px 200px;
   }
 }
 
 @media(min-width: 1000px) {
   .thumb {
-    grid-template-columns: 256px 256px 256px;
+    grid-template-columns: 200px 200px 200px;
   }
 }
 
 @media(min-width: 1400px) {
   .thumb {
-    grid-template-columns: 256px 256px 256px 256px;
+    grid-template-columns: 200px 200px 200px 200px;
   }
 }
 
@@ -153,27 +153,30 @@ h2.title {
   opacity: 1;
   display: inline-block;
   text-decoration: none;
-  width: 256px;
-  height: 256px;
+  width: 200px; 
+  height: 200px; 
   transition: all .1s ease-out;
+  background-color: #669aec;
+  box-shadow: 0px 24px 16px 16px rgba(0, 0, 0, 0.3),0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .thumb div:hover {
   cursor: pointer;
   transform: translate(0, -4px);
+  background-color: #7caaf5;
 }
 
 .thumb div p {
   text-decoration: none;
-  white-space: nowrap;
+  white-space: wrap;
   text-align: center;
-  margin: 0;
+  margin-top: 50px;
+  padding: 20px;
   font-family: 'Helvetica';
-  font-size: 16px;
-  color: #000000;
-  background-color: #93b0ff;
-  opacity: 0.8;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  font-weight: 700;
+  font-size: 24px;
+  color: #333;
+  opacity: 1.0;
 }
 
 .thumb div:hover p {
