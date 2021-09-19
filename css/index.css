@@ -75,7 +75,7 @@ h2 {
 .footer {
   text-align: center;
   bottom: 0px;
-  height: 235px;
+  height: 200px;
   width: 100%;
   background: rgb(42, 66, 107);
   color: rgb(255, 255, 255);
@@ -224,3 +224,15 @@ h2.title {
 canvas {
   display: block;
 }
+
+  /* Chrome, Safari, Opera */
+  @-webkit-keyframes fade {
+    from {opacity: 0.6;}
+    to {opacity: 1;}
+  }
+
+  /* Standard syntax */
+  @keyframes fade {
+    from {opacity: 0.6;}
+    to {opacity: 1;}
+  }
