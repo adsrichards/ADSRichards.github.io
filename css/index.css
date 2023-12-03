@@ -85,6 +85,10 @@ h2.title {
   color: #3e67aa
 }
 
+h2.subtitle {
+  color: #333
+}
+
 .about-container {
   order: 2;
   background-color: white;

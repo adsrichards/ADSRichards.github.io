@@ -10,17 +10,6 @@
 </head>
 
 <body>
-  <!--<div style="background-image: url('img/RuCl3_2d.jpg'); 
-  height: 100vh; 
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-size: cover;"
-  -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-
-    -webkit-animation: fade 1s ; /* Chrome, Safari, Opera */
-    animation: fade 1s ;-->
   <script src="https://threejs.org/build/three.min.js"></script>
   <script src="js/FlyingCubes.js"></script>
   <div>
@@ -84,37 +73,23 @@
   <div id="projects" style="
       width:80%; 
       margin: 0 auto; 
-      padding: 45px 0">
-    <h2 class="title" style="margin-bottom: 45px;">METHODS</h2><br>
-    <div class="thumb">
-      <!--
-      <div>
-        <p>Classical Monte Carlo</p>
-      </div>
-      <div>
-        <p>Quantum Monte Carlo</p>
-      </div>
-      <div>
-        <p style="margin-top: 35px;">Quantum-Classical Mapping</p>
-      </div>
-      <div>
-        <p style="font-size: 22px; margin-top: 55px;">Exact Diagonalization</p>
-      </div>
-      <div>
-        <p style="margin-top: 35px;">Density Functional Theory</p>
-      </div>
-      <div>
-        <p style="margin-top: 35px;">Dynamical Mean-Field Theory</p>
-      </div>
-    -->
-      <div>
-        <p>Monte Carlo Simulation</p>
-      </div>
-      <div>
-        <p style="margin-top: 35px;">Density Functional Theory</p>
-      </div>
-      <div>
-        <p style="margin-top: 35px;">Dynamical Mean-Field Theory</p>
+      padding: 5px 0">
+    <h2 class="title" style="margin-top: 30px; margin-bottom: 0px;">Personal Projects</h2><br>
+    <div id="projects" style="
+      width:80%; 
+      margin: 0 auto; 
+      padding: 0px 0"> 
+      <h2 class="subtitle" style="margin-top: 0px; margin-bottom: 15px;">Simulations</h2><br>
+      <div class="thumb">
+        <div>
+          <p style="margin-top: 30px;">Bistable Gene Expression</p>
+        </div>
+        <div>
+          <p style="margin-top: 60px;">Vicsek Model</p>
+        </div>
+        <div>
+          <p style="margin-top: 60px;">Ising Model</p>
+        </div>
       </div>
     </div>
   </div>
@@ -126,7 +101,7 @@
     flex-wrap: wrap;
     justify-content: space-around;">
     <div class="about-container">
-      <h2 class="title">ABOUT ME</h2>
+      <h2 class="title">About Me</h2>
       <p>
         . 
       </p>
@@ -134,27 +109,8 @@
         .
       </p>
     </div>
-    <!--
-    <div class="focus-container">
-      <h2 class="title">MY FOCUS</h2>
-      <div class="focus-logos">
-        <img title="JavaScript" width="64"
-          src="https://upload.wikimedia.org/wikipedia/commons/6/6a/JavaScript-logo.png">
-        <img title="React" width="128" style="position: relative; bottom: 10px; left: 15px;"
-          src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg">
-        <img title="WebGL" width="108" style="position: relative; top: 13px; left: 13px;"
-          src="https://upload.wikimedia.org/wikipedia/commons/2/25/WebGL_Logo.svg">
-        <img title="C++" width="64" src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg">
-        <img title="Python" width="64" style="position: relative;  top: 5px; left: 47px;"
-          src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Python-logo-notext.svg">
-        <img title="Node.js" width="84" style="position: relative;  top: 10px; left: 23px;"
-          src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Node.js_logo.svg">
-      </div>
-    </div>
-    -->
   </div>
 
-<!--
   <div id="modalVicsek" class="modal">
     <div class="modal-content" style="background-color: white;">
       <span class="close">&times;</span>
@@ -208,10 +164,10 @@
         <div style="width: 400px; height: 512px; background-color: white; margin: 0 20px; padding: ">
           <h2>Bistable Gene Expression</h2>
           <p>
-            A quick demo of the stochastic gene expression model that I studied during the winter of 2019
-            as part of my research assistantship. I helped our group by implementing the Gillespie algorithm for this
-            model, generating lots of data, and performing some data analysis. For more information, please see our
-            recently published conference paper
+            This is a demo of the stochastic gene expression model that I studied during one of my undergraduate 
+            research projects at the University of Waterloo. I helped our group by implementing the Gillespie algorithm for this 
+            model, using this method to generate a lot of data, and performing some statistical analysis. For more information, please see our 
+            conference paper [1]. The input control variable, u, can be adjusted in the simulation to demonstrate bistable switching.
             <a href="https://doi.org/10.1016/j.ifacol.2019.12.267" target="_blank"
               style="color: rgb(57, 91, 158); text-decoration: none;">
               here</a>.
@@ -238,77 +194,6 @@
     </div>
   </div>
 
-  <div id="modalGalaga" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
-        <div style="width: 512px; height: 512px;">
-          <video autoplay loop muted playsinline>
-            <source src="mov/galaga.mp4" type="video/mp4">
-          </video>
-        </div>
-        <div style="width: 400px; height: 512px; background-color: rgb(255, 255, 255); margin: 0 20px;">
-          <h2 style="text-align: center;">Self-Learning Galaga Script</h2>
-          <p>
-            Lua script that plays the classic arcade game Galaga for 2000 frames. The script is given random
-            instructions on which
-            buttons to press at each frame. Before each iteration of gameplay, the script changes its instructions
-            slightly and
-            accepts the change if it leads to an increased score. The script can beat the first level in about 80
-            iterations.
-          </p>
-          <div class="modal-buttons-container">
-            <a href="https://github.com/ADSRichards/Self-Learning-Galaga" target="_blank">
-              <div class="modal-button" style="position: relative; top: 25px;">
-                <p>See on GitHub</p>
-              </div>
-            </a>
-          </div>
-          <div style="display: flex; justify-content: space-around; position: relative; top: 65px;">
-            <img title="Lua" style="width: 172px;" src="img/logos/png/Lua.png" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div id="modalDipole" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
-        <div style="width: 512px; height: 512px;">
-          <img src="img/dipole.png" style="width: 512px; height: 512px; border-style: solid; border-color: #474747;" />
-        </div>
-        <div style="width: 400px; height: 512px; background-color: rgb(255, 255, 255); margin: 0 20px;">
-          <h2 style="text-align: center;">Lattice Dipole Monte Carlo</h2>
-          <p>
-            Markov-chain Monte Carlo C++ code which simulates the thermodynamics for a system of magnetic dipoles with
-            rotational freedom on a lattice.
-            The code can be run on a high-performance computing cluster using MPI to simulate independent systems in
-            parallel. Each simulation produces
-            samples representative of uncorrelated measurements for a system in thermodynamic equilibrium. Data produced
-            by this code were used in
-            <a href="https://doi.org/10.1038/s41467-018-04297-3" target="_blank"
-              style="color: rgb(57, 91, 158); text-decoration: none;">this</a>
-            publication.
-          </p>
-          <div class="modal-buttons-container">
-            <a href="https://github.com/ADSRichards/Lattice_Dipole_Ewald_Summation" target="_blank">
-              <div class="modal-button" style="position: relative; top: 10px;">
-                <p>See on GitHub</p>
-              </div>
-            </a>
-          </div>
-          <div style="display: flex; justify-content: space-around; position: relative; top: 40px;">
-            <img title="C++" style="width: 128px;"
-              src="https://upload.wikimedia.org/wikipedia/commons/1/18/ISO_C%2B%2B_Logo.svg" />
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
--->
-
   <div class="footer">
     <div class="spacer2"></div>
     <!--<p style="padding: 0; margin-bottom: 5px;"> <img src="img/logos/png/canada.png" style="width:72px; height:auto; margin-left: 1px; margin-right: 1px;"></img></p>-->
@@ -332,19 +217,13 @@
     </div>
   </div>
 
-<!--
+
   <script>
     const modalVicsek = document.getElementById("modalVicsek");
     const projVicsek = document.getElementById("projVicsek");
 
     const modalBistable = document.getElementById("modalBistable");
     const projBistable = document.getElementById("projBistable");
-
-    const modalGalaga = document.getElementById("modalGalaga");
-    const projGalaga = document.getElementById("projGalaga");
-
-    const modalDipole = document.getElementById("modalDipole");
-    const projDipole = document.getElementById("projDipole");
 
     const span = document.getElementsByClassName("close");
     let currentModal;
@@ -366,29 +245,13 @@
       }
     }
 
-    projGalaga.onclick = () => {
-      currentModal = modalGalaga;
-      currentModal.style.display = "block";
-      span[2].onclick = () => {
-        currentModal.style.display = "none";
-      }
-    }
-
-    projDipole.onclick = () => {
-      currentModal = modalDipole;
-      currentModal.style.display = "block";
-      span[3].onclick = () => {
-        currentModal.style.display = "none";
-      }
-    }
-
     window.onclick = (e) => {
       if (e.target == currentModal) {
         currentModal.style.display = "none";
       }
     }
   </script>
--->
+
 
 </body>
 
